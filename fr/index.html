@@ -1,0 +1,547 @@
+<!DOCTYPE html><html lang="fr" data-theme="auto" data-root="../" data-lang="fr" data-langs="bg en es pt fr de ru zh"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Messagerie sans numéro de téléphone ni serveur · P2P Messenger</title>
+    <meta name="description" content="Discute, appelle et envoie des fichiers sans numéro, sans e-mail, sans cloud. En direct et chiffré de bout en bout. Windows, Linux, Android, iPhone et navigateur.">
+    <meta name="theme-color" content="#0b1220">
+    <meta property="og:title" content="P2P Messenger · Tes lettres. Scellées.">
+    <meta property="og:description" content="Pas de serveur, pas de numéro, pas de cloud. En direct et chiffré de bout en bout.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="P2P Messenger">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="../icons/icon-192.png">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <link rel="preload" href="../fonts/ibm-plex-serif-cyrillic-500-italic.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="stylesheet" href="../site.css">
+    <!-- Installed app or an old link to the app: straight to the messenger, before anything is drawn. -->
+    <script src="../boot.js"></script>
+    <script type="module" src="../site.js"></script>
+  <link rel="canonical" href="https://dyrakarmy.online/fr/"><link rel="alternate" hreflang="bg" href="https://dyrakarmy.online/"><link rel="alternate" hreflang="en" href="https://dyrakarmy.online/en/"><link rel="alternate" hreflang="es" href="https://dyrakarmy.online/es/"><link rel="alternate" hreflang="pt-BR" href="https://dyrakarmy.online/pt/"><link rel="alternate" hreflang="fr" href="https://dyrakarmy.online/fr/"><link rel="alternate" hreflang="de" href="https://dyrakarmy.online/de/"><link rel="alternate" hreflang="ru" href="https://dyrakarmy.online/ru/"><link rel="alternate" hreflang="zh-Hans" href="https://dyrakarmy.online/zh/"><link rel="alternate" hreflang="x-default" href="https://dyrakarmy.online/"><meta property="og:url" content="https://dyrakarmy.online/fr/"><meta property="og:image" content="https://dyrakarmy.online/og-en.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="P2P Messenger · Tes lettres. Scellées."><meta property="og:locale:alternate" content="bg_BG"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="ru_RU"><meta property="og:locale:alternate" content="zh_CN"><script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"P2P Messenger","applicationCategory":"CommunicationApplication","operatingSystem":"Windows, Linux, Android, iOS, Web","description":"Discute, appelle et envoie des fichiers sans numéro, sans e-mail, sans cloud. En direct et chiffré de bout en bout. Windows, Linux, Android, iPhone et navigateur.","inLanguage":"fr","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"url":"https://dyrakarmy.online/fr/","image":"https://dyrakarmy.online/og-en.png"},{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"fr","mainEntity":[{"@type":"Question","name":"Il n’y a vraiment pas de serveur ?","acceptedAnswer":{"@type":"Answer","text":"Pas pour les messages et les fichiers : ils passent en direct. Un petit serveur sert seulement aux « salons », quand vous êtes loin et ne pouvez pas scanner de QR : pendant 10 minutes, il relaie des trames chiffrées qu’il ne peut pas lire. Des serveurs STUN publics aident les deux appareils à se trouver sans voir aucun contenu."}},{"@type":"Question","name":"Et si je perds mon téléphone ?","acceptedAnswer":{"@type":"Answer","text":"Les 12 mots restaurent ton profil sur un nouvel appareil. Alors note-les sur papier. Sans eux, personne ne peut le restaurer, nous compris."}},{"@type":"Question","name":"Faut-il être en ligne tous les deux ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Sans serveur pour garder les messages, ils sont livrés quand vous êtes connectés tous les deux. C’est le prix pour que personne ne les garde à ta place."}},{"@type":"Question","name":"Pourquoi ça ne se connecte pas toujours ?","acceptedAnswer":{"@type":"Answer","text":"Certains réseaux mobiles bloquent les liens directs. Essaie un même réseau Wi‑Fi pour la première connexion, ou ajoute ton propre serveur TURN dans les réglages. Par défaut, on n’utilise le serveur de personne d’autre."}},{"@type":"Question","name":"Combien ça coûte ?","acceptedAnswer":{"@type":"Answer","text":"Rien. Pas de pub, pas d’abonnement, pas de compte à revendre."}},{"@type":"Question","name":"Télécharger un .exe ou un .apk ici, c’est sûr ?","acceptedAnswer":{"@type":"Answer","text":"Les fichiers sont compilés automatiquement sur GitHub à partir du code source. Chacun a une somme de contrôle SHA-256, et les versions ont un SBOM signé. Si la somme correspond, le fichier est exactement celui qui a été compilé."}}]}]</script></head>
+  <body>
+    <a class="skip" href="#main" data-i18n="skip">Aller au contenu</a>
+
+    <!-- living background: two aurora fields that follow the palette, a star grid and film grain -->
+    <div class="aurora" aria-hidden="true">
+      <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+    </div>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="progress" aria-hidden="true"><span></span></div>
+
+    <header class="bar" id="top">
+      <a class="brand" href="#top" aria-label="P2P Messenger">
+        <span class="seal" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><defs><linearGradient id="sealg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--a)"></stop><stop offset="1" stop-color="var(--b)"></stop></linearGradient></defs><circle cx="24" cy="24" r="19" fill="url(#sealg)"></circle><circle cx="24" cy="24" r="14.5" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.2" stroke-dasharray="2 2.6"></circle><path d="M17 22.5h14v10.5H17z M19.8 22.5v-3.2a4.2 4.2 0 0 1 8.4 0v3.2" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"></path></svg>
+        </span>
+        <span class="brand-name">P2P <em>Messenger</em></span>
+      </a>
+      <nav class="nav" aria-label="Menu principal" data-i18n-aria="navLabel">
+        <a href="#features" data-i18n="navFeatures">Fonctions</a>
+        <a href="#how" data-i18n="navHow">Comment ça marche</a>
+        <a href="#connect" data-i18n="navConnect">Se connecter</a>
+        <a href="#security" data-i18n="navSecurity">Sécurité</a>
+        <a href="#download" data-i18n="navDownload">Télécharger</a>
+        <a href="#faq" data-i18n="navFaq">FAQ</a>
+      </nav>
+      <div class="bar-tools">
+        <details class="langs" data-langs-menu="">
+          <summary class="chip lang" aria-label="Langue" data-i18n-aria="langLabel"><span data-lang-current="">FR</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"></path></svg></summary>
+          <!-- written again for every page by scripts/site/build.mjs from site/locales.js -->
+          <ul class="lang-list" data-lang-list="">
+            <li><a href="../" hreflang="bg" lang="bg" data-code="bg">Български</a></li>
+            <li><a href="../en/" hreflang="en" lang="en" data-code="en">English</a></li>
+            <li><a href="../es/" hreflang="es" lang="es" data-code="es">Español</a></li>
+            <li><a href="../pt/" hreflang="pt-BR" lang="pt-BR" data-code="pt">Português (Brasil)</a></li>
+            <li><a href="./" hreflang="fr" lang="fr" data-code="fr" aria-current="page">Français</a></li>
+            <li><a href="../de/" hreflang="de" lang="de" data-code="de">Deutsch</a></li>
+            <li><a href="../ru/" hreflang="ru" lang="ru" data-code="ru">Русский</a></li>
+            <li><a href="../zh/" hreflang="zh-Hans" lang="zh-Hans" data-code="zh">简体中文</a></li>
+          </ul>
+        </details>
+        <button class="chip theme" type="button" data-theme-toggle="" aria-label="Thème clair ou sombre" data-i18n-aria="themeLabel">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="sun" d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.7-5.7 1.4-1.4M4.9 19.1l1.4-1.4m11.4 0 1.4 1.4M4.9 4.9l1.4 1.4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"></path><path class="moon" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg>
+        </button>
+        <a class="btn btn-ghost bar-open" href="../app/" data-i18n="openApp">Ouvrir dans le navigateur</a>
+        <button class="burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle="" aria-label="Menu" data-i18n-aria="menuLabel">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- full-screen menu (phones, and the "Меню" button on any size) -->
+    <div class="menu" id="menu" hidden="">
+      <nav aria-label="Menu" data-i18n-aria="menuLabel">
+        <a href="#features"><small>01</small><span data-i18n="navFeatures">Fonctions</span></a>
+        <a href="#how"><small>02</small><span data-i18n="navHow">Comment ça marche</span></a>
+        <a href="#connect"><small>03</small><span data-i18n="navConnect">Se connecter</span></a>
+        <a href="#security"><small>04</small><span data-i18n="navSecurity">Sécurité</span></a>
+        <a href="#download"><small>05</small><span data-i18n="navDownload">Télécharger</span></a>
+        <a href="#faq"><small>06</small><span data-i18n="navFaq">FAQ</span></a>
+      </nav>
+      <div class="menu-quick">
+        <p data-i18n="menuQuick">Directement le fichier pour</p>
+        <div class="menu-os">
+          <a href="#dl-windows" data-os-jump="windows">Windows</a>
+          <a href="#dl-linux" data-os-jump="linux">Linux</a>
+          <a href="#dl-android" data-os-jump="android">Android</a>
+          <a href="#dl-ios" data-os-jump="ios">iPhone</a>
+          <a href="../app/" data-i18n="osWeb">Navigateur</a>
+        </div>
+      </div>
+    </div>
+
+    <main id="main">
+      <!-- ================= HERO ================= -->
+      <section class="hero" data-palette="0">
+        <div class="hero-copy">
+          <p class="kicker reveal" data-i18n="heroKicker">Pas de serveur · pas de numéro · pas de cloud</p>
+          <h1 class="reveal" data-i18n-html="heroTitle">Tes lettres.<br><em>Scellées.</em></h1>
+          <p class="lead reveal" data-i18n="heroLead">Une messagerie où messages, photos, fichiers et appels vont directement de ton appareil à celui de l’autre. Chiffrés avant de partir. Personne en chemin ne peut les lire, parce qu’il n’y a personne en chemin.</p>
+          <div class="cta reveal">
+            <a class="btn btn-main magnet" href="#download" data-primary-download="">
+              <span class="btn-glow" aria-hidden="true"></span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"></path></svg>
+              <span data-primary-label="" data-i18n="ctaDownload">Télécharger gratuitement</span>
+            </a>
+            <a class="btn btn-ghost" href="../app/">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM8 20h8M12 16v4"></path></svg>
+              <span data-i18n="openApp">Ouvrir dans le navigateur</span>
+            </a>
+          </div>
+          <p class="cta-note reveal" data-primary-note="" data-i18n="ctaNote">Sans compte · Windows, Linux, Android, iPhone et navigateur</p>
+          <p class="ext-link reveal"><a href="#download" data-open-tab="extension" data-i18n="extHeroLink">Extension Chrome →</a></p>
+        </div>
+
+        <!-- the live demo: a message is sealed, travels with nobody in between, and is opened -->
+        <div class="demo reveal" aria-label="Démo : un message est chiffré, voyage en direct et est déchiffré" data-i18n-aria="demoLabel" role="img">
+          <div class="device left">
+            <div class="device-top"><span class="avatar a1" data-i18n="demoInitA">A</span><b data-i18n="demoA">Anne</b><i class="dot"></i></div>
+            <div class="bubble out" data-demo-out="">Здрасти! Тук никой не чете. 🔒</div>
+            <div class="cipher" data-demo-cipher="" aria-hidden="true"></div>
+            <div class="device-foot mono" data-i18n="demoSealed">scellé avec Double Ratchet</div>
+          </div>
+          <div class="wire" aria-hidden="true">
+            <svg viewBox="0 0 200 60" preserveAspectRatio="none"><path id="wirepath" d="M0 30 C 60 0, 140 60, 200 30"></path></svg>
+            <span class="packet" data-demo-packet=""></span>
+            <span class="no-server"><s data-i18n="demoServer">serveur</s><b data-i18n="demoNone">aucun</b></span>
+          </div>
+          <div class="device right">
+            <div class="device-top"><span class="avatar a2" data-i18n="demoInitB">P</span><b data-i18n="demoB">Pierre</b><i class="dot"></i></div>
+            <div class="bubble in" data-demo-in="" aria-live="off"></div>
+            <div class="words mono" aria-hidden="true" data-i18n-html="demoWords"><span>lune</span><span>cèdre</span><span>sable</span><span>lanterne</span></div>
+            <div class="device-foot mono" data-i18n="demoVerified">les mots correspondent ✓</div>
+          </div>
+        </div>
+        <a class="scroll-hint" href="#numbers" aria-label="Faire défiler" data-i18n-aria="scrollDown"><span></span></a>
+      </section>
+
+      <!-- ================= MARQUEE ================= -->
+      <div class="marquee" aria-hidden="true">
+        <div class="track" data-marquee="" data-i18n-html="marquee"><span>0 compte</span><span>✦</span><span>0 numéro de téléphone</span><span>✦</span><span>Double Ratchet</span><span>✦</span><span>WebRTC</span><span>✦</span><span>Passkey</span><span>✦</span><span>12 mots de récupération</span><span>✦</span><span>AES-GCM sur ton appareil</span><span>✦</span><span>SHA-256 + SBOM</span><span>✦</span></div>
+      </div>
+
+      <!-- ================= NUMBERS ================= -->
+      <section class="numbers" id="numbers" data-palette="1" aria-label="En chiffres" data-i18n-aria="numbersLabel">
+        <div class="stat reveal"><b data-count="0">0</b><span data-i18n="stat0">serveur pour garder tes messages</span></div>
+        <div class="stat reveal"><b data-count="100" data-suffix=" MB">100 MB</b><span data-i18n="stat1">par fichier, en direct, sans cloud</span></div>
+        <div class="stat reveal"><b data-count="9">9</b><span data-i18n="stat2">personnes dans un groupe chiffré</span></div>
+        <div class="stat reveal"><b data-count="12">12</b><span data-i18n="stat3">mots protègent tout ton profil</span></div>
+      </section>
+
+      <!-- ================= FEATURES ================= -->
+      <section class="features" id="features" data-palette="2">
+        <header class="sec-head reveal">
+          <p class="kicker" data-i18n="featKicker">Fonctions</p>
+          <h2 data-i18n-html="featTitle">Tout ce que fait une messagerie.<br><em>Sans intermédiaire.</em></h2>
+        </header>
+        <div class="bento">
+          <article class="card big reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg></div>
+            <h3 data-i18n="f1t">Chiffré de bout en bout</h3>
+            <p data-i18n="f1p">Chaque message reçoit une nouvelle clé (Double Ratchet). Même si quelqu’un met la main sur une clé, les messages d’avant et d’après restent verrouillés.</p>
+            <div class="card-art ratchet" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+          <article class="card reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="4"></circle><path d="M11 11l9 9m-4-4 2-2m-5-1 2-2"></path></svg></div>
+            <h3 data-i18n="f2t">Sans inscription</h3>
+            <p data-i18n="f2p">Une passkey ou un mot de passe sur ton appareil. Pas d’e-mail, pas de téléphone, pas de code SMS.</p>
+          </article>
+          <article class="card reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3z"></path><path d="M14 14h3v3h-3zM18 18h3v3h-3z"></path></svg></div>
+            <h3 data-i18n="f3t">Sept façons de se connecter</h3>
+            <p data-i18n="f3p">Un QR en direct, un code à distance, Bluetooth, du son, de la lumière, un ami commun ou une invitation par n’importe quelle messagerie. Les mots du code n’atteignent jamais le serveur.</p>
+          </article>
+          <article class="card reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M14 3H6v18h12V7z"></path><path d="M14 3v4h4M12 10v6m-3-3 3 3 3-3"></path></svg></div>
+            <h3 data-i18n="f4t">Fichiers jusqu’à 100 Mo</h3>
+            <p data-i18n="f4p">Vidéos, documents, musique avec lecteur intégré. Colle une image avec Ctrl+V et elle est prête à partir.</p>
+          </article>
+          <article class="card reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg></div>
+            <h3 data-i18n="f5t">Appels audio et vidéo</h3>
+            <p data-i18n="f5p">Sur le même lien direct. Le flux est chiffré (DTLS-SRTP).</p>
+          </article>
+          <article class="card wide reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"></circle><circle cx="17" cy="9" r="2.6"></circle><path d="M3 20a6 6 0 0 1 12 0M14.5 20a4.5 4.5 0 0 1 7-3.8"></path></svg></div>
+            <h3 data-i18n="f6t">Groupes jusqu’à 9</h3>
+            <p data-i18n="f6p">Admin, nom et photo du groupe, GIF. Un nouveau membre ne voit pas l’historique, et un membre retiré perd l’accès même hors ligne.</p>
+            <div class="card-art orbit" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+          <article class="card reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"></path></svg></div>
+            <h3 data-i18n="f7t">12 mots et te revoilà</h3>
+            <p data-i18n="f7p">Note-les une fois. Sur un nouvel appareil, ils te rendent ton profil.</p>
+          </article>
+          <article class="card reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="11" height="16" rx="2"></rect><rect x="15" y="8" width="6" height="12" rx="1.5"></rect><path d="M8 17h1"></path></svg></div>
+            <h3 data-i18n="f8t">Passe à un nouvel appareil</h3>
+            <p data-i18n="f8p">Scanne un QR depuis l’ancien téléphone et ton profil est transféré, chiffré.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================= HOW ================= -->
+      <section class="how" id="how" data-palette="3">
+        <header class="sec-head reveal">
+          <p class="kicker" data-i18n="howKicker">Comment ça marche</p>
+          <h2 data-i18n-html="howTitle">Trois étapes.<br><em>Zéro compte.</em></h2>
+        </header>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-n">1</span>
+            <h3 data-i18n="s1t">Crée un profil</h3>
+            <p data-i18n="s1p">Un seul geste. Les clés sont créées sur ton appareil et n’en sortent jamais. Tu notes les 12 mots.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-n">2</span>
+            <h3 data-i18n="s2t">Connecte-toi</h3>
+            <p data-i18n="s2p">Connectez-vous de l’une des sept façons : QR, code, Bluetooth, son, lumière, ami commun ou invitation. Le lien entre les deux appareils est direct (WebRTC).</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-n">3</span>
+            <h3 data-i18n="s3t">Compare les mots</h3>
+            <p data-i18n="s3p">Vous voyez tous les deux les mêmes mots. S’ils correspondent, personne n’est au milieu. C’est bon, discutez.</p>
+          </li>
+        </ol>
+        <div class="versus reveal">
+          <div class="vs-col old">
+            <p class="vs-h" data-i18n="vsOld">Une messagerie classique</p>
+            <div class="vs-diagram" aria-hidden="true"><span class="node">📱</span><span class="line"></span><span class="node srv">🗄️</span><span class="line"></span><span class="node">📱</span></div>
+            <ul>
+              <li data-i18n="vsOld1">un compte lié à un numéro de téléphone</li>
+              <li data-i18n="vsOld2">les messages passent par leurs serveurs</li>
+              <li data-i18n="vsOld3">qui parle à qui et quand, ça reste chez eux</li>
+            </ul>
+          </div>
+          <div class="vs-col new">
+            <p class="vs-h" data-i18n="vsNew">P2P Messenger</p>
+            <div class="vs-diagram" aria-hidden="true"><span class="node">📱</span><span class="line live"></span><span class="node">📱</span></div>
+            <ul>
+              <li data-i18n="vsNew1">ni numéro ni e-mail</li>
+              <li data-i18n="vsNew2">directement d’appareil à appareil</li>
+              <li data-i18n="vsNew3">l’historique reste chez toi, chiffré</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONNECT: seven ways ================= -->
+      <section class="connect" id="connect" data-palette="8">
+        <header class="sec-head reveal">
+          <p class="kicker" data-i18n="connKicker">Façons de se connecter</p>
+          <h2 data-i18n-html="connTitle">Sept façons de se connecter.<br><em>Choisissez la vôtre.</em></h2>
+          <p class="sec-lead" data-i18n="connLead">Chaque façon fait passer l’invitation par un chemin différent. Une fois connectés, avec les sept, vous comparez les mêmes 12 mots de sécurité : s’ils correspondent, personne n’est au milieu.</p>
+        </header>
+        <div class="ways">
+          <article class="card way reveal" data-tilt="" data-way="qr">
+            <div class="way-art" aria-hidden="true">
+              <svg class="art" viewBox="0 0 240 120" focusable="false">
+                <g class="ph"><rect x="52" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="57" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="ph"><rect x="144" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="149" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="qr an qr-l"><rect x="63" y="46" width="8" height="8"></rect><rect x="73" y="46" width="8" height="8"></rect><rect x="63" y="56" width="8" height="8"></rect><rect x="73" y="66" width="8" height="8"></rect><rect x="63" y="66" width="8" height="8"></rect><rect x="73" y="56" width="8" height="8" class="dim"></rect></g>
+                <g class="qr an qr-r"><rect x="155" y="46" width="8" height="8"></rect><rect x="165" y="56" width="8" height="8"></rect><rect x="155" y="56" width="8" height="8" class="dim"></rect><rect x="165" y="46" width="8" height="8"></rect><rect x="155" y="66" width="8" height="8"></rect><rect x="165" y="66" width="8" height="8" class="dim"></rect></g>
+                <rect class="scan an" x="60" y="40" width="28" height="2.5" rx="1.2"></rect>
+                <rect class="scan scan-r an" x="152" y="40" width="28" height="2.5" rx="1.2"></rect>
+                <g class="ok an"><circle cx="120" cy="58" r="12"></circle><path d="M114 58.5l4.2 4.2 7.8-8.4"></path></g>
+              </svg>
+            </div>
+            <span class="way-n mono" aria-hidden="true">01</span>
+            <h3 data-i18n="w1t">QR, face à face</h3>
+            <p data-i18n="w1p">Deux téléphones s’affichent et se scannent mutuellement leurs codes QR. L’invitation est un texte signé dans le code : aucun serveur n’intervient (mode local).</p>
+            <p class="way-when"><b data-i18n="wayWhen">Idéal quand</b> <span data-i18n="w1w">vous êtes au même endroit.</span></p>
+          </article>
+
+          <article class="card way reveal" data-tilt="" data-way="code">
+            <div class="way-art" aria-hidden="true">
+              <svg class="art" viewBox="0 0 240 120" focusable="false">
+                <path class="arc" d="M38 104 Q120 124 202 104"></path>
+                <circle class="say an" cx="79" cy="111.5" r="3.6"></circle><circle class="say an" cx="120" cy="114" r="3.6"></circle><circle class="say an" cx="161" cy="111.5" r="3.6"></circle>
+                <g class="ph"><rect x="16" y="10" width="44" height="86" rx="9"></rect><rect class="scr" x="21" y="20" width="34" height="66" rx="4"></rect></g>
+                <g class="ph"><rect x="180" y="10" width="44" height="86" rx="9"></rect><rect class="scr" x="185" y="20" width="34" height="66" rx="4"></rect></g>
+                <g class="chips"><rect class="cd an" x="92" y="12" width="8" height="11" rx="2"></rect><rect class="cd an" x="104" y="12" width="8" height="11" rx="2"></rect><rect class="cd an" x="116" y="12" width="8" height="11" rx="2"></rect><rect class="cd an" x="128" y="12" width="8" height="11" rx="2"></rect><rect class="cd an" x="140" y="12" width="8" height="11" rx="2"></rect></g>
+                <g class="box"><rect x="102" y="38" width="36" height="34" rx="7"></rect><path d="M110 50h20M110 58h20M110 66h12"></path></g>
+                <rect class="pkt an" x="64" y="49" width="15" height="11" rx="3"></rect>
+              </svg>
+            </div>
+            <span class="way-n mono" aria-hidden="true">02</span>
+            <h3 data-i18n="w2t">Code court, à distance</h3>
+            <p data-i18n="w2p">L’un de vous ouvre un salon et dicte par téléphone un code de 5 caractères et 3 mots. Le serveur ne voit que le numéro du salon et du texte chiffré ; la clé vient des mots (CPace PAKE).</p>
+            <p class="way-when"><b data-i18n="wayWhen">Idéal quand</b> <span data-i18n="w2w">vous êtes loin mais pouvez vous parler.</span></p>
+          </article>
+
+          <article class="card way reveal" data-tilt="" data-way="ble">
+            <div class="way-art" aria-hidden="true">
+              <svg class="art" viewBox="0 0 240 120" focusable="false">
+                <circle class="ring an" cx="120" cy="58" r="14"></circle><circle class="ring r2 an" cx="120" cy="58" r="14"></circle><circle class="ring r3 an" cx="120" cy="58" r="14"></circle>
+                <g class="ph"><rect x="52" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="57" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="ph"><rect x="144" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="149" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="bt an"><circle cx="120" cy="58" r="15"></circle><path d="M114 52l12 12-6 5V47l6 5-12 12"></path></g>
+                <circle class="blip an" cx="74" cy="58" r="4"></circle><circle class="blip b2 an" cx="166" cy="58" r="4"></circle>
+              </svg>
+            </div>
+            <span class="way-n mono" aria-hidden="true">03</span>
+            <h3 data-i18n="w3t">Bluetooth</h3>
+            <p data-i18n="w3p">Les téléphones, côte à côte, s’échangent l’invitation en Bluetooth basse consommation. Uniquement dans l’appli Android et iPhone, pas dans le navigateur.</p>
+            <p class="way-when"><b data-i18n="wayWhen">Idéal quand</b> <span data-i18n="w3w">vous êtes proches et préférez ne rien scanner.</span></p>
+          </article>
+
+          <article class="card way reveal" data-tilt="" data-way="sound">
+            <div class="way-art" aria-hidden="true">
+              <svg class="art" viewBox="0 0 240 120" focusable="false">
+                <g class="ph"><rect x="30" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="35" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="ph"><rect x="166" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="171" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="qr"><rect x="41" y="44" width="8" height="8"></rect><rect x="51" y="44" width="8" height="8"></rect><rect x="41" y="54" width="8" height="8"></rect><rect x="51" y="64" width="8" height="8"></rect><rect x="41" y="64" width="8" height="8"></rect><rect x="51" y="54" width="8" height="8" class="dim"></rect></g>
+                <circle class="mic an" cx="52" cy="82" r="3.2"></circle>
+                <g class="eq"><rect class="eqb an" x="175" y="54" width="3.4" height="14" rx="1.7"></rect><rect class="eqb b2 an" x="181" y="54" width="3.4" height="14" rx="1.7"></rect><rect class="eqb b3 an" x="187" y="54" width="3.4" height="14" rx="1.7"></rect><rect class="eqb b4 an" x="193" y="54" width="3.4" height="14" rx="1.7"></rect><rect class="eqb b5 an" x="199" y="54" width="3.4" height="14" rx="1.7"></rect></g>
+                <path class="wave an" d="M156 46q-9 12 0 24"></path><path class="wave w2 an" d="M156 46q-9 12 0 24"></path><path class="wave w3 an" d="M156 46q-9 12 0 24"></path>
+              </svg>
+            </div>
+            <span class="way-n mono" aria-hidden="true">04</span>
+            <span class="way-new" data-i18n="wayNew">Nouveau</span>
+            <h3 data-i18n="w4t">QR + son</h3>
+            <p data-i18n="w4p">Un téléphone affiche un QR ; l’autre répond par un court son, d’environ 15 secondes, via son haut-parleur, et le premier l’écoute avec son micro. Pas de second code à scanner.</p>
+            <p class="way-when"><b data-i18n="wayWhen">Idéal quand</b> <span data-i18n="w4w">vous êtes ensemble dans un endroit plutôt calme.</span></p>
+          </article>
+
+          <article class="card way reveal" data-tilt="" data-way="light">
+            <div class="way-art" aria-hidden="true">
+              <svg class="art" viewBox="0 0 240 120" focusable="false">
+                <g class="ph"><rect x="30" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="35" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="ph"><rect x="166" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="171" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="cells"><rect class="lc c1 an" x="36.4" y="45" width="6" height="6" rx="1.4"></rect><rect class="lc c2 an" x="44.8" y="45" width="6" height="6" rx="1.4"></rect><rect class="lc c3 an" x="53.2" y="45" width="6" height="6" rx="1.4"></rect><rect class="lc c2 an" x="61.6" y="45" width="6" height="6" rx="1.4"></rect><rect class="lc c3 an" x="36.4" y="53.4" width="6" height="6" rx="1.4"></rect><rect class="lc c1 an" x="44.8" y="53.4" width="6" height="6" rx="1.4"></rect><rect class="lc c2 an" x="53.2" y="53.4" width="6" height="6" rx="1.4"></rect><rect class="lc c1 an" x="61.6" y="53.4" width="6" height="6" rx="1.4"></rect><rect class="lc c2 an" x="36.4" y="61.8" width="6" height="6" rx="1.4"></rect><rect class="lc c3 an" x="44.8" y="61.8" width="6" height="6" rx="1.4"></rect><rect class="lc c1 an" x="53.2" y="61.8" width="6" height="6" rx="1.4"></rect><rect class="lc c3 an" x="61.6" y="61.8" width="6" height="6" rx="1.4"></rect><rect class="lc c1 an" x="36.4" y="70.2" width="6" height="6" rx="1.4"></rect><rect class="lc c2 an" x="44.8" y="70.2" width="6" height="6" rx="1.4"></rect><rect class="lc c3 an" x="53.2" y="70.2" width="6" height="6" rx="1.4"></rect><rect class="lc c2 an" x="61.6" y="70.2" width="6" height="6" rx="1.4"></rect></g>
+                <path class="ray an" d="M80 48L158 38"></path><path class="ray r2 an" d="M80 58H158"></path><path class="ray r3 an" d="M80 68L158 78"></path>
+                <g class="vf an"><path d="M176 40v-6h6M200 34h6v6M206 78v6h-6M182 84h-6v-6"></path><circle cx="191" cy="59" r="3.4"></circle></g>
+                <circle class="lens" cx="188" cy="19" r="1.8"></circle>
+              </svg>
+            </div>
+            <span class="way-n mono" aria-hidden="true">05</span>
+            <span class="way-new" data-i18n="wayNew">Nouveau</span>
+            <h3 data-i18n="w7t">QR + lumière</h3>
+            <p data-i18n="w7p">Un téléphone affiche un QR ; l’autre le scanne et répond par une animation lente de carrés colorés sur son écran (5 à 8 secondes), que le premier lit avec sa caméra. Au plus 3 changements par seconde, pas de rouge, et un avertissement avant le début.</p>
+            <p class="way-when"><b data-i18n="wayWhen">Idéal quand</b> <span data-i18n="w7w">vous êtes ensemble, mais il y a du bruit.</span></p>
+          </article>
+
+          <article class="card way reveal" data-tilt="" data-way="friend">
+            <div class="way-art" aria-hidden="true">
+              <svg class="art" viewBox="0 0 240 120" focusable="false">
+                <path class="ln l1 an" d="M120 36L58 86"></path><path class="ln l2 an" d="M120 36L182 86"></path>
+                <path class="ln dash l3 an" d="M70 92H170"></path>
+                <circle class="pdot d1 an" cx="120" cy="36" r="4.5"></circle><circle class="pdot d2 an" cx="120" cy="36" r="4.5"></circle>
+                <g class="who"><circle cx="120" cy="26" r="15"></circle><circle class="hd" cx="120" cy="22" r="4.6"></circle><path class="sh" d="M111 35a9 8 0 0 1 18 0"></path></g>
+                <g class="who"><circle cx="50" cy="92" r="15"></circle><circle class="hd" cx="50" cy="88" r="4.6"></circle><path class="sh" d="M41 101a9 8 0 0 1 18 0"></path></g>
+                <g class="who"><circle cx="190" cy="92" r="15"></circle><circle class="hd" cx="190" cy="88" r="4.6"></circle><path class="sh" d="M181 101a9 8 0 0 1 18 0"></path></g>
+                <g class="ok an"><circle cx="120" cy="92" r="9"></circle><path d="M115.5 92.2l3.1 3.1 5.9-6.3"></path></g>
+              </svg>
+            </div>
+            <span class="way-n mono" aria-hidden="true">06</span>
+            <span class="way-new" data-i18n="wayNew">Nouveau</span>
+            <h3 data-i18n="w5t">Par un ami commun</h3>
+            <p data-i18n="w5p">Un contact que vous connaissez tous les deux vous présente. C’est entièrement de pair à pair, vous devez accepter tous les deux, et l’ami ne peut pas se faire passer pour quelqu’un d’autre.</p>
+            <p class="way-when"><b data-i18n="wayWhen">Idéal quand</b> <span data-i18n="w5w">vous avez un ami commun en qui vous avez déjà confiance.</span></p>
+          </article>
+
+          <article class="card way reveal" data-tilt="" data-way="relay">
+            <div class="way-art" aria-hidden="true">
+              <svg class="art" viewBox="0 0 240 120" focusable="false">
+                <path class="arc" d="M40 62Q120 8 200 62"></path>
+                <g class="ph"><rect x="16" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="21" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="ph"><rect x="180" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="185" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="bub an"><path d="M90 42h60a8 8 0 0 1 8 8v22a8 8 0 0 1-8 8h-44l-10 9v-9h-6a8 8 0 0 1-8-8V50a8 8 0 0 1 8-8z"></path><path class="tx" d="M98 54h44M98 62h30M98 70h38"></path></g>
+                <path class="plane an" d="M54 52l18 7-18 7 4-7z"></path>
+              </svg>
+            </div>
+            <span class="way-n mono" aria-hidden="true">07</span>
+            <h3 data-i18n="w6t">Bot Telegram ou invitation copiée</h3>
+            <p data-i18n="w6p">L’invitation signée passe par le bot Telegram, ou bien vous la copiez et la collez dans n’importe quelle messagerie. Le canal peut voir l’invitation, mais un remplacement se voit en comparant les mots.</p>
+            <p class="way-when"><b data-i18n="wayWhen">Idéal quand</b> <span data-i18n="w6w">vous êtes loin et ne pouvez pas vous parler.</span></p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================= SECURITY ================= -->
+      <section class="security" id="security" data-palette="4">
+        <header class="sec-head reveal">
+          <p class="kicker" data-i18n="secKicker">La sécurité, sans fanfaronner</p>
+          <h2 data-i18n-html="secTitle">On dit ce qu’on fait.<br><em>Et ce qu’on ne fait pas encore.</em></h2>
+        </header>
+        <div class="sec-grid">
+          <div class="sec-item reveal"><b data-i18n="sec1t">Versions signées</b><p data-i18n="sec1p">Chaque version a une liste signée des dépendances (SBOM) et des sommes de contrôle.</p></div>
+          <div class="sec-item reveal"><b data-i18n="sec2t">Builds reproductibles</b><p data-i18n="sec2p">Deux builds propres du même code donnent des fichiers identiques. C’est vérifié automatiquement.</p></div>
+          <div class="sec-item reveal"><b data-i18n="sec3t">Vérifié face à une référence</b><p data-i18n="sec3p">Le Double Ratchet passe des tests face à une implémentation de référence indépendante. Il n’y a pas encore d’audit externe payant, et on le dit.</p></div>
+          <div class="sec-item reveal"><b data-i18n="sec4t">Le serveur de signalisation est aveugle</b><p data-i18n="sec4p">En mode « salon », un petit Worker relaie seulement des trames chiffrées pendant 10 minutes. La clé vient des trois mots (PAKE) : il ne voit ni l’invitation, ni tes clés, ni tes adresses. Le mode QR n’utilise aucun serveur.</p></div>
+          <div class="sec-item reveal"><b data-i18n="sec5t">Chiffré sur le disque aussi</b><p data-i18n="sec5p">L’historique et les contacts sont stockés sur l’appareil, chiffrés en AES-GCM. La clé n’en sort jamais.</p></div>
+          <div class="sec-item reveal warn"><b data-i18n="sec6t">Un avertissement honnête</b><p data-i18n="sec6p">Le lien est direct, donc certains réseaux mobiles le bloquent. Fais alors la première connexion sur un même réseau Wi‑Fi, ou via ton propre serveur TURN.</p></div>
+        </div>
+      </section>
+
+      <!-- ================= DOWNLOAD ================= -->
+      <section class="download" id="download" data-palette="5">
+        <header class="sec-head reveal">
+          <p class="kicker" data-i18n="dlKicker">Télécharger</p>
+          <h2 data-i18n-html="dlTitle">Choisis ton appareil.<br><em>Le fichier est juste là.</em></h2>
+          <p class="sec-lead" data-i18n="dlLead">Les fichiers viennent des versions publiées sur GitHub. Chacun a sa somme de contrôle SHA-256 à côté.</p>
+        </header>
+        <div class="os-tabs reveal" role="tablist" aria-label="Système" data-i18n-aria="osLabel">
+          <button role="tab" type="button" data-tab="windows" id="tab-windows" aria-controls="dl-windows">Windows</button>
+          <button role="tab" type="button" data-tab="linux" id="tab-linux" aria-controls="dl-linux">Linux</button>
+          <button role="tab" type="button" data-tab="android" id="tab-android" aria-controls="dl-android">Android</button>
+          <button role="tab" type="button" data-tab="ios" id="tab-ios" aria-controls="dl-ios">iPhone · iPad</button>
+          <button role="tab" type="button" data-tab="web" id="tab-web" aria-controls="dl-web" data-i18n="osWeb">Navigateur</button>
+          <button role="tab" type="button" data-tab="extension" id="tab-extension" aria-controls="dl-extension" data-i18n="osExtension">Extension</button>
+          <span class="tab-ink" aria-hidden="true"></span>
+        </div>
+
+        <div class="panels reveal">
+          <div class="panel" role="tabpanel" id="dl-windows" aria-labelledby="tab-windows" data-panel="windows">
+            <div class="panel-head"><h3>Windows 10 · 11</h3><span class="badge" data-badge="windows"></span></div>
+            <div class="files">
+              <a class="file main" data-kind="windowsSetup" data-fallback=""><b data-i18n="winSetup">Installateur</b><small data-i18n="winSetupNote">sans droits admin · .exe</small><span class="meta"></span></a>
+              <a class="file" data-kind="windowsPortable" data-fallback=""><b data-i18n="winPortable">Portable</b><small data-i18n="winPortableNote">décompresse et lance · .zip</small><span class="meta"></span></a>
+              <a class="file" data-kind="windowsSums" data-fallback=""><b>SHA256SUMS.txt</b><small data-i18n="sums">sommes de contrôle</small><span class="meta"></span></a>
+            </div>
+            <p class="hint" data-i18n="winHint">Windows SmartScreen peut demander une fois, car le programme est nouveau. Choisis « Informations complémentaires » → « Exécuter quand même ».</p>
+          </div>
+
+          <div class="panel" role="tabpanel" id="dl-linux" aria-labelledby="tab-linux" data-panel="linux" hidden="">
+            <div class="panel-head"><h3>Linux x86_64</h3><span class="badge" data-badge="linux"></span></div>
+            <div class="files">
+              <a class="file main" data-kind="deb" data-fallback=""><b>.deb</b><small>Debian · Ubuntu · Mint</small><span class="meta"></span></a>
+              <a class="file" data-kind="rpm" data-fallback=""><b>.rpm</b><small>Fedora · openSUSE</small><span class="meta"></span></a>
+              <a class="file" data-kind="appimage" data-fallback=""><b>AppImage</b><small data-i18n="appimageNote">tourne partout, sans installation</small><span class="meta"></span></a>
+              <a class="file" data-kind="flatpak" data-fallback=""><b>Flatpak</b><small data-i18n="flatpakNote">isolé (sandbox)</small><span class="meta"></span></a>
+            </div>
+            <div class="code-line" data-install-line="" hidden=""><span class="mono" data-install-cmd="">curl -fsSLO …/install.sh &amp;&amp; bash install.sh</span><button class="copy" type="button" data-copy-from="[data-install-cmd]" data-i18n="copy">Copier</button></div>
+            <p class="hint" data-i18n="linuxHint">install.sh vérifie les sommes de contrôle avant d’installer quoi que ce soit.</p>
+          </div>
+
+          <div class="panel" role="tabpanel" id="dl-android" aria-labelledby="tab-android" data-panel="android" hidden="">
+            <div class="panel-head"><h3>Android 7+</h3><span class="badge" data-badge="android"></span></div>
+            <div class="files">
+              <a class="file main" data-kind="apk" data-fallback=""><b>APK</b><small data-i18n="apkNote">installation directe</small><span class="meta"></span></a>
+              <a class="file" data-kind="androidSums" data-fallback=""><b>SHA256SUMS-android.txt</b><small data-i18n="sums">sommes de contrôle</small><span class="meta"></span></a>
+            </div>
+            <ol class="mini-steps">
+              <li data-i18n="apk1">Télécharge le fichier sur ton téléphone.</li>
+              <li data-i18n="apk2">Ouvre-le et active « Autoriser cette source ».</li>
+              <li data-i18n="apk3">C’est fait. Ou passe par le navigateur : Chrome → ⋮ → « Installer l’application ».</li>
+            </ol>
+          </div>
+
+          <div class="panel" role="tabpanel" id="dl-ios" aria-labelledby="tab-ios" data-panel="ios" hidden="">
+            <div class="panel-head"><h3>iPhone · iPad</h3><span class="badge soft" data-i18n="iosBadge">via Safari</span></div>
+            <ol class="mini-steps big">
+              <li data-i18n-html="ios1">Ouvre l’<a href="../app/">appli</a> dans Safari.</li>
+              <li data-i18n="ios2">Touche « Partager » (le carré avec une flèche).</li>
+              <li data-i18n="ios3">Choisis « Sur l’écran d’accueil ». Elle s’ouvre en plein écran, comme une vraie appli.</li>
+            </ol>
+            <p class="hint" data-i18n="iosHint">Il n’y a pas encore d’appli sur l’App Store. La version web, c’est le même code, avec tout dedans.</p>
+          </div>
+
+          <div class="panel" role="tabpanel" id="dl-web" aria-labelledby="tab-web" data-panel="web" hidden="">
+            <div class="panel-head"><h3 data-i18n="webTitle">Directement dans le navigateur</h3><span class="badge soft" data-i18n="webBadge">sans installation</span></div>
+            <p class="panel-lead" data-i18n="webLead">Chrome, Edge, Firefox ou Safari, sur ordinateur ou téléphone. Après la première visite, ce qui est déjà chargé marche hors ligne.</p>
+            <a class="btn btn-main" href="../app/"><span data-i18n="openApp">Ouvrir dans le navigateur</span></a>
+          </div>
+
+          <div class="panel" role="tabpanel" id="dl-extension" aria-labelledby="tab-extension" data-panel="extension" hidden="">
+            <div class="panel-head"><h3 data-i18n="extTitle">Extension Chrome</h3><span class="badge" data-ext-badge=""></span></div>
+            <div class="ext-grid">
+              <div class="ext-demo" role="img" aria-label="Aspect de la fenêtre de l’extension" data-i18n-aria="extMockLabel">
+                <div class="ext-bar" aria-hidden="true"><i></i><i></i><i></i><span class="ext-addr">dyrakarmy.online/app/</span><span class="ext-pin"></span></div>
+                <div class="ext-popup" aria-hidden="true" data-ext-mock="" lang="en">
+                  <div class="ext-brand"><span class="ext-ico"></span><div><div class="ext-h1" data-ext-msg="popupTitle">P2P Messenger</div><div class="ext-sub" data-ext-msg="popupSubtitle">Private, direct, no servers.</div></div></div>
+                  <div class="ext-status" data-ext-msg="statusClosed">Not open yet.</div>
+                  <div class="ext-btn primary" data-ext-msg="openMessenger">Open messenger</div>
+                  <div class="ext-btn" data-ext-msg="openWindow">Open in a small window</div>
+                  <div class="ext-foot"><p data-ext-msg="shortcutHint">Shortcut: Ctrl+Shift+M (Command+Shift+M on Mac)</p><p data-ext-msg="privacyNote">The extension only opens the app. It collects no data and runs no servers of its own.</p></div>
+                </div>
+              </div>
+              <div class="ext-info">
+                <p class="panel-lead" data-i18n-html="extLead">Un petit bouton à côté de la barre d’adresse qui ouvre la messagerie en un clic ou avec <code>Ctrl+Shift+M</code>. Si elle est déjà ouverte dans un onglet, il passe au premier plan. Elle ne collecte aucune donnée et n’a pas de serveur à elle.</p>
+                <div class="files">
+                  <a class="file main" href="../downloads/p2p-messenger-quick-launch.zip" download="p2p-messenger-quick-launch.zip" data-ext-file=""><b data-i18n="extFile">Télécharger l’extension</b><small>.zip · Chromium</small><span class="meta" data-ext-meta=""></span></a>
+                </div>
+                <div class="code-line" data-ext-sha-line="" hidden=""><span class="mono"><span class="sha-label">SHA-256</span> <span data-ext-sha=""></span></span><button class="copy" type="button" data-copy-from="[data-ext-sha]" data-i18n="copy">Copier</button></div>
+                <p class="hint" data-i18n="extBrowsers">Fonctionne dans Chrome, Edge, Brave et d’autres navigateurs Chromium. Dans Firefox et Safari, utilisez directement l’application.</p>
+                <p class="hint ext-store" data-i18n="extStore">Elle n’est pas dans le Chrome Web Store : on l’ajoute à la main comme « extension non empaquetée ». Chrome peut afficher un avertissement du mode développeur : c’est normal.</p>
+              </div>
+            </div>
+            <ol class="mini-steps ext-steps">
+              <li data-i18n="ext1">Téléchargez le fichier et décompressez-le dans un dossier que vous ne supprimerez pas : Chrome lit l’extension à cet endroit.</li>
+              <li data-i18n-html="ext2">Ouvrez <code>chrome://extensions</code> (dans Edge : <code>edge://extensions</code>) et activez le « Mode développeur » en haut à droite.</li>
+              <li data-i18n="ext3">Cliquez sur « Charger l’extension non empaquetée » (Load unpacked) et choisissez le dossier décompressé, celui qui contient manifest.json.</li>
+              <li data-i18n-html="ext4">C’est fait. Épinglez l’icône depuis le menu en forme de puzzle à côté de la barre d’adresse et appuyez sur <code>Ctrl+Shift+M</code> (sur Mac : <code>Command+Shift+M</code>).</li>
+            </ol>
+          </div>
+        </div>
+        <p class="all-releases reveal"><a href="https://github.com/biramentv-ux/p2p-pure-releases/releases" rel="noopener" data-i18n="allReleases">Toutes les versions et notes sur GitHub →</a></p>
+      </section>
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq" id="faq" data-palette="6">
+        <header class="sec-head reveal">
+          <p class="kicker" data-i18n="faqKicker">FAQ</p>
+          <h2 data-i18n-html="faqTitle">On nous demande.<br><em>On répond franchement.</em></h2>
+        </header>
+        <div class="qa">
+          <details class="reveal"><summary data-i18n="q1">Il n’y a vraiment pas de serveur ?</summary><p data-i18n="a1">Pas pour les messages et les fichiers : ils passent en direct. Un petit serveur sert seulement aux « salons », quand vous êtes loin et ne pouvez pas scanner de QR : pendant 10 minutes, il relaie des trames chiffrées qu’il ne peut pas lire. Des serveurs STUN publics aident les deux appareils à se trouver sans voir aucun contenu.</p></details>
+          <details class="reveal"><summary data-i18n="q2">Et si je perds mon téléphone ?</summary><p data-i18n="a2">Les 12 mots restaurent ton profil sur un nouvel appareil. Alors note-les sur papier. Sans eux, personne ne peut le restaurer, nous compris.</p></details>
+          <details class="reveal"><summary data-i18n="q3">Faut-il être en ligne tous les deux ?</summary><p data-i18n="a3">Oui. Sans serveur pour garder les messages, ils sont livrés quand vous êtes connectés tous les deux. C’est le prix pour que personne ne les garde à ta place.</p></details>
+          <details class="reveal"><summary data-i18n="q4">Pourquoi ça ne se connecte pas toujours ?</summary><p data-i18n="a4">Certains réseaux mobiles bloquent les liens directs. Essaie un même réseau Wi‑Fi pour la première connexion, ou ajoute ton propre serveur TURN dans les réglages. Par défaut, on n’utilise le serveur de personne d’autre.</p></details>
+          <details class="reveal"><summary data-i18n="q5">Combien ça coûte ?</summary><p data-i18n="a5">Rien. Pas de pub, pas d’abonnement, pas de compte à revendre.</p></details>
+          <details class="reveal"><summary data-i18n="q6">Télécharger un .exe ou un .apk ici, c’est sûr ?</summary><p data-i18n="a6">Les fichiers sont compilés automatiquement sur GitHub à partir du code source. Chacun a une somme de contrôle SHA-256, et les versions ont un SBOM signé. Si la somme correspond, le fichier est exactement celui qui a été compilé.</p></details>
+        </div>
+      </section>
+
+      <!-- ================= FINAL CTA ================= -->
+      <section class="final" data-palette="7">
+        <div class="final-inner reveal">
+          <h2 data-i18n-html="finalTitle">Ton prochain message<br><em>peut rester rien qu’à toi.</em></h2>
+          <div class="cta">
+            <a class="btn btn-main magnet" href="#download" data-primary-download=""><span class="btn-glow" aria-hidden="true"></span><span data-primary-label="" data-i18n="ctaDownload">Télécharger gratuitement</span></a>
+            <a class="btn btn-ghost" href="../app/"><span data-i18n="openApp">Ouvrir dans le navigateur</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot-brand"><b>P2P Messenger</b><span data-i18n="footTag">Personnel. Décentralisé. Scellé.</span></div>
+      <nav class="foot-links" aria-label="Liens" data-i18n-aria="footLabel">
+        <a href="https://github.com/biramentv-ux/p2p-pure-releases/releases" rel="noopener" data-i18n="footReleases">Versions</a>
+        <a href="https://github.com/biramentv-ux/p2p-pure-releases/blob/main/SECURITY.md" rel="noopener" data-i18n="footSecurity">Sécurité</a>
+        <a href="https://github.com/biramentv-ux/p2p-pure-releases/blob/main/LICENSE" rel="noopener" data-i18n="footLicense">Licence</a>
+      </nav>
+      <p class="foot-small" data-i18n="footSmall">Ce site n’utilise ni cookies, ni pistage, ni polices externes. Rien n’est envoyé pendant que tu le parcours.</p>
+    </footer>
+
+    <!-- Filled in by the build (scripts/site/build.mjs) from the GitHub releases. -->
+    <script type="application/json" id="releases">{"windowsSetup":{"name":"P2P-Messenger-Setup-x64.exe","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/P2P-Messenger-Setup-x64.exe","size":4288798,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"windowsPortable":{"name":"P2P-Messenger-portable-x64.zip","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/P2P-Messenger-portable-x64.zip","size":2711761,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"windowsWinget":{"name":"P2P-Messenger-winget-manifests.zip","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/P2P-Messenger-winget-manifests.zip","size":2875,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"windowsSums":{"name":"SHA256SUMS.txt","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/SHA256SUMS.txt","size":193,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"deb":{"name":"P2P-Messenger-0.8.1-amd64.deb","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/P2P-Messenger-0.8.1-amd64.deb","size":101917524,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"rpm":{"name":"P2P-Messenger-0.8.1-x86_64.rpm","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/P2P-Messenger-0.8.1-x86_64.rpm","size":91385981,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"appimage":{"name":"P2P-Messenger-0.8.1-x86_64.AppImage","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/P2P-Messenger-0.8.1-x86_64.AppImage","size":127034925,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"flatpak":{"name":"P2P-Messenger-0.8.1-x86_64.flatpak","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/P2P-Messenger-0.8.1-x86_64.flatpak","size":94339728,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"linuxInstall":{"name":"install.sh","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/install.sh","size":16800,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"linuxSums":{"name":"SHA256SUMS-linux.txt","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/SHA256SUMS-linux.txt","size":473,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"apk":{"name":"P2P-Messenger-0.8.0-android.apk","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/android-v0.8.0/P2P-Messenger-0.8.0-android.apk","size":5607245,"tag":"android-v0.8.0","version":"0.8.0","preview":false,"published":"2026-11-05T03:46:18Z"},"androidSums":{"name":"SHA256SUMS-android.txt","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/android-v0.8.0/SHA256SUMS-android.txt","size":98,"tag":"android-v0.8.0","version":"0.8.0","preview":false,"published":"2026-11-05T03:46:18Z"}}</script>
+    <!-- Version, size and SHA-256 of downloads/p2p-messenger-quick-launch.zip, filled in by the build. -->
+    <script type="application/json" id="extension-info">{"version":"1.0.0","size":13524,"sha256":"70275520e9c1addf811cdecf3bb54c10b4f0afe1a540a91b978579d4c0860fd7","file":"p2p-messenger-quick-launch-1.0.0.zip"}</script>
+  
+
+</body></html>

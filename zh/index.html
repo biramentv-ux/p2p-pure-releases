@@ -1,0 +1,547 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="auto" data-root="../" data-lang="zh" data-langs="bg en es pt fr de ru zh"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>无需手机号、无需服务器的通讯工具 · P2P Messenger</title>
+    <meta name="description" content="聊天、通话、发文件，无需手机号、邮箱或云端。点对点直连，端到端加密。支持 Windows、Linux、Android、iPhone 和浏览器。">
+    <meta name="theme-color" content="#0b1220">
+    <meta property="og:title" content="P2P Messenger · 你的信，已封缄。">
+    <meta property="og:description" content="没有服务器，没有手机号，没有云端。点对点直连，端到端加密。">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="P2P Messenger">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="../icons/icon-192.png">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <link rel="preload" href="../fonts/ibm-plex-serif-cyrillic-500-italic.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="stylesheet" href="../site.css">
+    <!-- Installed app or an old link to the app: straight to the messenger, before anything is drawn. -->
+    <script src="../boot.js"></script>
+    <script type="module" src="../site.js"></script>
+  <link rel="canonical" href="https://dyrakarmy.online/zh/"><link rel="alternate" hreflang="bg" href="https://dyrakarmy.online/"><link rel="alternate" hreflang="en" href="https://dyrakarmy.online/en/"><link rel="alternate" hreflang="es" href="https://dyrakarmy.online/es/"><link rel="alternate" hreflang="pt-BR" href="https://dyrakarmy.online/pt/"><link rel="alternate" hreflang="fr" href="https://dyrakarmy.online/fr/"><link rel="alternate" hreflang="de" href="https://dyrakarmy.online/de/"><link rel="alternate" hreflang="ru" href="https://dyrakarmy.online/ru/"><link rel="alternate" hreflang="zh-Hans" href="https://dyrakarmy.online/zh/"><link rel="alternate" hreflang="x-default" href="https://dyrakarmy.online/"><meta property="og:url" content="https://dyrakarmy.online/zh/"><meta property="og:image" content="https://dyrakarmy.online/og-en.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="P2P Messenger · 你的信，已封缄。"><meta property="og:locale:alternate" content="bg_BG"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="ru_RU"><script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"P2P Messenger","applicationCategory":"CommunicationApplication","operatingSystem":"Windows, Linux, Android, iOS, Web","description":"聊天、通话、发文件，无需手机号、邮箱或云端。点对点直连，端到端加密。支持 Windows、Linux、Android、iPhone 和浏览器。","inLanguage":"zh-Hans","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"url":"https://dyrakarmy.online/zh/","image":"https://dyrakarmy.online/og-en.png"},{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"zh-Hans","mainEntity":[{"@type":"Question","name":"真的没有服务器吗？","acceptedAnswer":{"@type":"Answer","text":"消息和文件不经过服务器，直接传输。只有在“房间”模式下才用到一台小服务器：你们相隔太远、没法扫 QR 码时，它在 10 分钟内转发它读不懂的加密数据。公共 STUN 服务器帮两台设备找到彼此，但看不到任何内容。"}},{"@type":"Question","name":"手机丢了怎么办？","acceptedAnswer":{"@type":"Answer","text":"用那 12 个词就能在新设备上恢复个人资料，所以请写在纸上。没有它们，谁都恢复不了，包括我们。"}},{"@type":"Question","name":"双方都得在线吗？","acceptedAnswer":{"@type":"Answer","text":"是的。没有服务器替你们暂存消息，所以只有双方都在线时才能送达。这就是没人替你保管消息的代价。"}},{"@type":"Question","name":"为什么有时连不上？","acceptedAnswer":{"@type":"Answer","text":"部分移动网络会拦截直连。首次连接可以试试同一个 Wi‑Fi，或在设置里添加你自己的 TURN 服务器。默认我们不使用任何第三方服务器。"}},{"@type":"Question","name":"要花钱吗？","acceptedAnswer":{"@type":"Answer","text":"完全免费。没有广告，没有订阅，也没有可以拿去卖的账号。"}},{"@type":"Question","name":"从这里下载 .exe 或 .apk 安全吗？","acceptedAnswer":{"@type":"Answer","text":"所有文件都由 GitHub 根据源代码自动构建。每个都附有 SHA-256 校验和，版本发布还附带签名的 SBOM。校验和一致，就说明文件和构建出来的一模一样。"}}]}]</script></head>
+  <body>
+    <a class="skip" href="#main" data-i18n="skip">跳到正文</a>
+
+    <!-- living background: two aurora fields that follow the palette, a star grid and film grain -->
+    <div class="aurora" aria-hidden="true">
+      <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+    </div>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="progress" aria-hidden="true"><span></span></div>
+
+    <header class="bar" id="top">
+      <a class="brand" href="#top" aria-label="P2P Messenger">
+        <span class="seal" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><defs><linearGradient id="sealg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--a)"></stop><stop offset="1" stop-color="var(--b)"></stop></linearGradient></defs><circle cx="24" cy="24" r="19" fill="url(#sealg)"></circle><circle cx="24" cy="24" r="14.5" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.2" stroke-dasharray="2 2.6"></circle><path d="M17 22.5h14v10.5H17z M19.8 22.5v-3.2a4.2 4.2 0 0 1 8.4 0v3.2" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"></path></svg>
+        </span>
+        <span class="brand-name">P2P <em>Messenger</em></span>
+      </a>
+      <nav class="nav" aria-label="主菜单" data-i18n-aria="navLabel">
+        <a href="#features" data-i18n="navFeatures">功能</a>
+        <a href="#how" data-i18n="navHow">工作原理</a>
+        <a href="#connect" data-i18n="navConnect">连接方式</a>
+        <a href="#security" data-i18n="navSecurity">安全</a>
+        <a href="#download" data-i18n="navDownload">下载</a>
+        <a href="#faq" data-i18n="navFaq">常见问题</a>
+      </nav>
+      <div class="bar-tools">
+        <details class="langs" data-langs-menu="">
+          <summary class="chip lang" aria-label="语言" data-i18n-aria="langLabel"><span data-lang-current="">中文</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"></path></svg></summary>
+          <!-- written again for every page by scripts/site/build.mjs from site/locales.js -->
+          <ul class="lang-list" data-lang-list="">
+            <li><a href="../" hreflang="bg" lang="bg" data-code="bg">Български</a></li>
+            <li><a href="../en/" hreflang="en" lang="en" data-code="en">English</a></li>
+            <li><a href="../es/" hreflang="es" lang="es" data-code="es">Español</a></li>
+            <li><a href="../pt/" hreflang="pt-BR" lang="pt-BR" data-code="pt">Português (Brasil)</a></li>
+            <li><a href="../fr/" hreflang="fr" lang="fr" data-code="fr">Français</a></li>
+            <li><a href="../de/" hreflang="de" lang="de" data-code="de">Deutsch</a></li>
+            <li><a href="../ru/" hreflang="ru" lang="ru" data-code="ru">Русский</a></li>
+            <li><a href="./" hreflang="zh-Hans" lang="zh-Hans" data-code="zh" aria-current="page">简体中文</a></li>
+          </ul>
+        </details>
+        <button class="chip theme" type="button" data-theme-toggle="" aria-label="浅色或深色主题" data-i18n-aria="themeLabel">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="sun" d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.7-5.7 1.4-1.4M4.9 19.1l1.4-1.4m11.4 0 1.4 1.4M4.9 4.9l1.4 1.4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"></path><path class="moon" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg>
+        </button>
+        <a class="btn btn-ghost bar-open" href="../app/" data-i18n="openApp">在浏览器中打开</a>
+        <button class="burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle="" aria-label="菜单" data-i18n-aria="menuLabel">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- full-screen menu (phones, and the "Меню" button on any size) -->
+    <div class="menu" id="menu" hidden="">
+      <nav aria-label="菜单" data-i18n-aria="menuLabel">
+        <a href="#features"><small>01</small><span data-i18n="navFeatures">功能</span></a>
+        <a href="#how"><small>02</small><span data-i18n="navHow">工作原理</span></a>
+        <a href="#connect"><small>03</small><span data-i18n="navConnect">连接方式</span></a>
+        <a href="#security"><small>04</small><span data-i18n="navSecurity">安全</span></a>
+        <a href="#download"><small>05</small><span data-i18n="navDownload">下载</span></a>
+        <a href="#faq"><small>06</small><span data-i18n="navFaq">常见问题</span></a>
+      </nav>
+      <div class="menu-quick">
+        <p data-i18n="menuQuick">直接下载：</p>
+        <div class="menu-os">
+          <a href="#dl-windows" data-os-jump="windows">Windows</a>
+          <a href="#dl-linux" data-os-jump="linux">Linux</a>
+          <a href="#dl-android" data-os-jump="android">Android</a>
+          <a href="#dl-ios" data-os-jump="ios">iPhone</a>
+          <a href="../app/" data-i18n="osWeb">浏览器</a>
+        </div>
+      </div>
+    </div>
+
+    <main id="main">
+      <!-- ================= HERO ================= -->
+      <section class="hero" data-palette="0">
+        <div class="hero-copy">
+          <p class="kicker reveal" data-i18n="heroKicker">无服务器 · 无手机号 · 无云端</p>
+          <h1 class="reveal" data-i18n-html="heroTitle">你的信，<br><em>已封缄。</em></h1>
+          <p class="lead reveal" data-i18n="heroLead">消息、照片、文件和通话，从你的设备直接送到对方手里。发出前就已加密。途中没人能读，因为途中根本没有人。</p>
+          <div class="cta reveal">
+            <a class="btn btn-main magnet" href="#download" data-primary-download="">
+              <span class="btn-glow" aria-hidden="true"></span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"></path></svg>
+              <span data-primary-label="" data-i18n="ctaDownload">免费下载</span>
+            </a>
+            <a class="btn btn-ghost" href="../app/">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM8 20h8M12 16v4"></path></svg>
+              <span data-i18n="openApp">在浏览器中打开</span>
+            </a>
+          </div>
+          <p class="cta-note reveal" data-primary-note="" data-i18n="ctaNote">无需账号 · Windows、Linux、Android、iPhone 和浏览器</p>
+          <p class="ext-link reveal"><a href="#download" data-open-tab="extension" data-i18n="extHeroLink">Chrome 扩展程序 →</a></p>
+        </div>
+
+        <!-- the live demo: a message is sealed, travels with nobody in between, and is opened -->
+        <div class="demo reveal" aria-label="演示：一条消息被加密、直接传送、再被解密" data-i18n-aria="demoLabel" role="img">
+          <div class="device left">
+            <div class="device-top"><span class="avatar a1" data-i18n="demoInitA">安</span><b data-i18n="demoA">安娜</b><i class="dot"></i></div>
+            <div class="bubble out" data-demo-out="">Здрасти! Тук никой не чете. 🔒</div>
+            <div class="cipher" data-demo-cipher="" aria-hidden="true"></div>
+            <div class="device-foot mono" data-i18n="demoSealed">已用 Double Ratchet 加密</div>
+          </div>
+          <div class="wire" aria-hidden="true">
+            <svg viewBox="0 0 200 60" preserveAspectRatio="none"><path id="wirepath" d="M0 30 C 60 0, 140 60, 200 30"></path></svg>
+            <span class="packet" data-demo-packet=""></span>
+            <span class="no-server"><s data-i18n="demoServer">服务器</s><b data-i18n="demoNone">无</b></span>
+          </div>
+          <div class="device right">
+            <div class="device-top"><span class="avatar a2" data-i18n="demoInitB">彼</span><b data-i18n="demoB">彼得</b><i class="dot"></i></div>
+            <div class="bubble in" data-demo-in="" aria-live="off"></div>
+            <div class="words mono" aria-hidden="true" data-i18n-html="demoWords"><span>月亮</span><span>雪松</span><span>沙丘</span><span>灯笼</span></div>
+            <div class="device-foot mono" data-i18n="demoVerified">词语一致 ✓</div>
+          </div>
+        </div>
+        <a class="scroll-hint" href="#numbers" aria-label="向下滚动" data-i18n-aria="scrollDown"><span></span></a>
+      </section>
+
+      <!-- ================= MARQUEE ================= -->
+      <div class="marquee" aria-hidden="true">
+        <div class="track" data-marquee="" data-i18n-html="marquee"><span>0 个账号</span><span>✦</span><span>0 个手机号</span><span>✦</span><span>Double Ratchet</span><span>✦</span><span>WebRTC</span><span>✦</span><span>Passkey</span><span>✦</span><span>12 个恢复词</span><span>✦</span><span>AES-GCM 本地加密</span><span>✦</span><span>SHA-256 + SBOM</span><span>✦</span></div>
+      </div>
+
+      <!-- ================= NUMBERS ================= -->
+      <section class="numbers" id="numbers" data-palette="1" aria-label="数字一览" data-i18n-aria="numbersLabel">
+        <div class="stat reveal"><b data-count="0">0</b><span data-i18n="stat0">台服务器保存你的消息</span></div>
+        <div class="stat reveal"><b data-count="100" data-suffix=" MB">100 MB</b><span data-i18n="stat1">单个文件，直接传，不经云端</span></div>
+        <div class="stat reveal"><b data-count="9">9</b><span data-i18n="stat2">人的加密群聊</span></div>
+        <div class="stat reveal"><b data-count="12">12</b><span data-i18n="stat3">个词守护你的全部资料</span></div>
+      </section>
+
+      <!-- ================= FEATURES ================= -->
+      <section class="features" id="features" data-palette="2">
+        <header class="sec-head reveal">
+          <p class="kicker" data-i18n="featKicker">功能</p>
+          <h2 data-i18n-html="featTitle">通讯工具该有的，都有。<br><em>只是没有中间人。</em></h2>
+        </header>
+        <div class="bento">
+          <article class="card big reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg></div>
+            <h3 data-i18n="f1t">端到端加密</h3>
+            <p data-i18n="f1p">每条消息都用新密钥（Double Ratchet）。就算有人拿到一把密钥，之前和之后的消息依然锁得好好的。</p>
+            <div class="card-art ratchet" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+          <article class="card reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="4"></circle><path d="M11 11l9 9m-4-4 2-2m-5-1 2-2"></path></svg></div>
+            <h3 data-i18n="f2t">无需注册</h3>
+            <p data-i18n="f2p">在你的设备上用 passkey 或密码即可。不要邮箱，不要手机号，不要短信验证码。</p>
+          </article>
+          <article class="card reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3z"></path><path d="M14 14h3v3h-3zM18 18h3v3h-3z"></path></svg></div>
+            <h3 data-i18n="f3t">七种连接方式</h3>
+            <p data-i18n="f3p">当面二维码、远程短码、蓝牙、声音、光线、共同好友，或通过任意聊天软件发送邀请。码里的词永远不会到达服务器。</p>
+          </article>
+          <article class="card reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M14 3H6v18h12V7z"></path><path d="M14 3v4h4M12 10v6m-3-3 3 3 3-3"></path></svg></div>
+            <h3 data-i18n="f4t">文件最大 100 MB</h3>
+            <p data-i18n="f4p">视频、文档、音乐，内置播放器。按 Ctrl+V 粘贴图片，马上就能发。</p>
+          </article>
+          <article class="card reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg></div>
+            <h3 data-i18n="f5t">语音和视频通话</h3>
+            <p data-i18n="f5p">走同一条直连通道。媒体全程加密（DTLS-SRTP）。</p>
+          </article>
+          <article class="card wide reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"></circle><circle cx="17" cy="9" r="2.6"></circle><path d="M3 20a6 6 0 0 1 12 0M14.5 20a4.5 4.5 0 0 1 7-3.8"></path></svg></div>
+            <h3 data-i18n="f6t">最多 9 人群聊</h3>
+            <p data-i18n="f6p">管理员、群名和群头像、GIF 都有。新成员看不到旧记录，被移出的人即使离线也会失去访问权。</p>
+            <div class="card-art orbit" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+          <article class="card reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"></path></svg></div>
+            <h3 data-i18n="f7t">12 个词，一切找回</h3>
+            <p data-i18n="f7p">抄下来一次就好。换新设备时，用它们找回你的个人资料。</p>
+          </article>
+          <article class="card reveal" data-tilt="">
+            <div class="card-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="11" height="16" rx="2"></rect><rect x="15" y="8" width="6" height="12" rx="1.5"></rect><path d="M8 17h1"></path></svg></div>
+            <h3 data-i18n="f8t">迁移到新设备</h3>
+            <p data-i18n="f8p">用新设备扫一下旧手机上的 QR 码，个人资料就会加密迁移过去。</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================= HOW ================= -->
+      <section class="how" id="how" data-palette="3">
+        <header class="sec-head reveal">
+          <p class="kicker" data-i18n="howKicker">工作原理</p>
+          <h2 data-i18n-html="howTitle">三步搞定。<br><em>零账号。</em></h2>
+        </header>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-n">1</span>
+            <h3 data-i18n="s1t">创建个人资料</h3>
+            <p data-i18n="s1p">点一下就好。密钥在你的设备上生成，永远不会离开。记得抄下那 12 个词。</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-n">2</span>
+            <h3 data-i18n="s2t">建立连接</h3>
+            <p data-i18n="s2p">七种方式任选其一：二维码、短码、蓝牙、声音、光线、共同好友或邀请。两台设备之间的连接是直连的（WebRTC）。</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-n">3</span>
+            <h3 data-i18n="s3t">核对词语</h3>
+            <p data-i18n="s3p">你们会看到同样的几个词。一致就说明中间没人。搞定，开聊吧。</p>
+          </li>
+        </ol>
+        <div class="versus reveal">
+          <div class="vs-col old">
+            <p class="vs-h" data-i18n="vsOld">普通通讯工具</p>
+            <div class="vs-diagram" aria-hidden="true"><span class="node">📱</span><span class="line"></span><span class="node srv">🗄️</span><span class="line"></span><span class="node">📱</span></div>
+            <ul>
+              <li data-i18n="vsOld1">账号绑定手机号</li>
+              <li data-i18n="vsOld2">消息经过他们的服务器</li>
+              <li data-i18n="vsOld3">谁在何时和谁聊天，他们都记着</li>
+            </ul>
+          </div>
+          <div class="vs-col new">
+            <p class="vs-h" data-i18n="vsNew">P2P Messenger</p>
+            <div class="vs-diagram" aria-hidden="true"><span class="node">📱</span><span class="line live"></span><span class="node">📱</span></div>
+            <ul>
+              <li data-i18n="vsNew1">不要手机号，不要邮箱</li>
+              <li data-i18n="vsNew2">设备到设备，直接送达</li>
+              <li data-i18n="vsNew3">聊天记录留在你这里，加密保存</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONNECT: seven ways ================= -->
+      <section class="connect" id="connect" data-palette="8">
+        <header class="sec-head reveal">
+          <p class="kicker" data-i18n="connKicker">连接方式</p>
+          <h2 data-i18n-html="connTitle">七种连接方式。<br><em>选适合你的。</em></h2>
+          <p class="sec-lead" data-i18n="connLead">每种方式传递邀请的途径不同。连接之后，七种方式都要核对同样的 12 个安全词：一致，就说明中间没有别人。</p>
+        </header>
+        <div class="ways">
+          <article class="card way reveal" data-tilt="" data-way="qr">
+            <div class="way-art" aria-hidden="true">
+              <svg class="art" viewBox="0 0 240 120" focusable="false">
+                <g class="ph"><rect x="52" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="57" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="ph"><rect x="144" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="149" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="qr an qr-l"><rect x="63" y="46" width="8" height="8"></rect><rect x="73" y="46" width="8" height="8"></rect><rect x="63" y="56" width="8" height="8"></rect><rect x="73" y="66" width="8" height="8"></rect><rect x="63" y="66" width="8" height="8"></rect><rect x="73" y="56" width="8" height="8" class="dim"></rect></g>
+                <g class="qr an qr-r"><rect x="155" y="46" width="8" height="8"></rect><rect x="165" y="56" width="8" height="8"></rect><rect x="155" y="56" width="8" height="8" class="dim"></rect><rect x="165" y="46" width="8" height="8"></rect><rect x="155" y="66" width="8" height="8"></rect><rect x="165" y="66" width="8" height="8" class="dim"></rect></g>
+                <rect class="scan an" x="60" y="40" width="28" height="2.5" rx="1.2"></rect>
+                <rect class="scan scan-r an" x="152" y="40" width="28" height="2.5" rx="1.2"></rect>
+                <g class="ok an"><circle cx="120" cy="58" r="12"></circle><path d="M114 58.5l4.2 4.2 7.8-8.4"></path></g>
+              </svg>
+            </div>
+            <span class="way-n mono" aria-hidden="true">01</span>
+            <h3 data-i18n="w1t">当面扫码</h3>
+            <p data-i18n="w1p">两部手机互相展示并扫描对方的二维码。邀请是码里的签名文本，全程不经过任何服务器（本地模式）。</p>
+            <p class="way-when"><b data-i18n="wayWhen">适用于：</b> <span data-i18n="w1w">你们在同一个地方时。</span></p>
+          </article>
+
+          <article class="card way reveal" data-tilt="" data-way="code">
+            <div class="way-art" aria-hidden="true">
+              <svg class="art" viewBox="0 0 240 120" focusable="false">
+                <path class="arc" d="M38 104 Q120 124 202 104"></path>
+                <circle class="say an" cx="79" cy="111.5" r="3.6"></circle><circle class="say an" cx="120" cy="114" r="3.6"></circle><circle class="say an" cx="161" cy="111.5" r="3.6"></circle>
+                <g class="ph"><rect x="16" y="10" width="44" height="86" rx="9"></rect><rect class="scr" x="21" y="20" width="34" height="66" rx="4"></rect></g>
+                <g class="ph"><rect x="180" y="10" width="44" height="86" rx="9"></rect><rect class="scr" x="185" y="20" width="34" height="66" rx="4"></rect></g>
+                <g class="chips"><rect class="cd an" x="92" y="12" width="8" height="11" rx="2"></rect><rect class="cd an" x="104" y="12" width="8" height="11" rx="2"></rect><rect class="cd an" x="116" y="12" width="8" height="11" rx="2"></rect><rect class="cd an" x="128" y="12" width="8" height="11" rx="2"></rect><rect class="cd an" x="140" y="12" width="8" height="11" rx="2"></rect></g>
+                <g class="box"><rect x="102" y="38" width="36" height="34" rx="7"></rect><path d="M110 50h20M110 58h20M110 66h12"></path></g>
+                <rect class="pkt an" x="64" y="49" width="15" height="11" rx="3"></rect>
+              </svg>
+            </div>
+            <span class="way-n mono" aria-hidden="true">02</span>
+            <h3 data-i18n="w2t">远程短码</h3>
+            <p data-i18n="w2p">一方开一个房间，电话里说出 5 位字符码和 3 个词。服务器只看到房间号和密文；密钥由这几个词生成（CPace PAKE）。</p>
+            <p class="way-when"><b data-i18n="wayWhen">适用于：</b> <span data-i18n="w2w">你们相隔很远但能通话时。</span></p>
+          </article>
+
+          <article class="card way reveal" data-tilt="" data-way="ble">
+            <div class="way-art" aria-hidden="true">
+              <svg class="art" viewBox="0 0 240 120" focusable="false">
+                <circle class="ring an" cx="120" cy="58" r="14"></circle><circle class="ring r2 an" cx="120" cy="58" r="14"></circle><circle class="ring r3 an" cx="120" cy="58" r="14"></circle>
+                <g class="ph"><rect x="52" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="57" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="ph"><rect x="144" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="149" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="bt an"><circle cx="120" cy="58" r="15"></circle><path d="M114 52l12 12-6 5V47l6 5-12 12"></path></g>
+                <circle class="blip an" cx="74" cy="58" r="4"></circle><circle class="blip b2 an" cx="166" cy="58" r="4"></circle>
+              </svg>
+            </div>
+            <span class="way-n mono" aria-hidden="true">03</span>
+            <h3 data-i18n="w3t">蓝牙</h3>
+            <p data-i18n="w3p">两部手机靠在一起，通过低功耗蓝牙传递邀请。仅限 Android 和 iPhone 应用，浏览器不支持。</p>
+            <p class="way-when"><b data-i18n="wayWhen">适用于：</b> <span data-i18n="w3w">你们离得很近、不想扫码时。</span></p>
+          </article>
+
+          <article class="card way reveal" data-tilt="" data-way="sound">
+            <div class="way-art" aria-hidden="true">
+              <svg class="art" viewBox="0 0 240 120" focusable="false">
+                <g class="ph"><rect x="30" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="35" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="ph"><rect x="166" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="171" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="qr"><rect x="41" y="44" width="8" height="8"></rect><rect x="51" y="44" width="8" height="8"></rect><rect x="41" y="54" width="8" height="8"></rect><rect x="51" y="64" width="8" height="8"></rect><rect x="41" y="64" width="8" height="8"></rect><rect x="51" y="54" width="8" height="8" class="dim"></rect></g>
+                <circle class="mic an" cx="52" cy="82" r="3.2"></circle>
+                <g class="eq"><rect class="eqb an" x="175" y="54" width="3.4" height="14" rx="1.7"></rect><rect class="eqb b2 an" x="181" y="54" width="3.4" height="14" rx="1.7"></rect><rect class="eqb b3 an" x="187" y="54" width="3.4" height="14" rx="1.7"></rect><rect class="eqb b4 an" x="193" y="54" width="3.4" height="14" rx="1.7"></rect><rect class="eqb b5 an" x="199" y="54" width="3.4" height="14" rx="1.7"></rect></g>
+                <path class="wave an" d="M156 46q-9 12 0 24"></path><path class="wave w2 an" d="M156 46q-9 12 0 24"></path><path class="wave w3 an" d="M156 46q-9 12 0 24"></path>
+              </svg>
+            </div>
+            <span class="way-n mono" aria-hidden="true">04</span>
+            <span class="way-new" data-i18n="wayNew">新</span>
+            <h3 data-i18n="w4t">二维码 + 声音</h3>
+            <p data-i18n="w4p">一部手机显示二维码，另一部用扬声器发出约 15 秒的短声音作答，前一部用麦克风收听。不用再扫第二个码。</p>
+            <p class="way-when"><b data-i18n="wayWhen">适用于：</b> <span data-i18n="w4w">你们在一起，而且环境比较安静时。</span></p>
+          </article>
+
+          <article class="card way reveal" data-tilt="" data-way="light">
+            <div class="way-art" aria-hidden="true">
+              <svg class="art" viewBox="0 0 240 120" focusable="false">
+                <g class="ph"><rect x="30" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="35" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="ph"><rect x="166" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="171" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="cells"><rect class="lc c1 an" x="36.4" y="45" width="6" height="6" rx="1.4"></rect><rect class="lc c2 an" x="44.8" y="45" width="6" height="6" rx="1.4"></rect><rect class="lc c3 an" x="53.2" y="45" width="6" height="6" rx="1.4"></rect><rect class="lc c2 an" x="61.6" y="45" width="6" height="6" rx="1.4"></rect><rect class="lc c3 an" x="36.4" y="53.4" width="6" height="6" rx="1.4"></rect><rect class="lc c1 an" x="44.8" y="53.4" width="6" height="6" rx="1.4"></rect><rect class="lc c2 an" x="53.2" y="53.4" width="6" height="6" rx="1.4"></rect><rect class="lc c1 an" x="61.6" y="53.4" width="6" height="6" rx="1.4"></rect><rect class="lc c2 an" x="36.4" y="61.8" width="6" height="6" rx="1.4"></rect><rect class="lc c3 an" x="44.8" y="61.8" width="6" height="6" rx="1.4"></rect><rect class="lc c1 an" x="53.2" y="61.8" width="6" height="6" rx="1.4"></rect><rect class="lc c3 an" x="61.6" y="61.8" width="6" height="6" rx="1.4"></rect><rect class="lc c1 an" x="36.4" y="70.2" width="6" height="6" rx="1.4"></rect><rect class="lc c2 an" x="44.8" y="70.2" width="6" height="6" rx="1.4"></rect><rect class="lc c3 an" x="53.2" y="70.2" width="6" height="6" rx="1.4"></rect><rect class="lc c2 an" x="61.6" y="70.2" width="6" height="6" rx="1.4"></rect></g>
+                <path class="ray an" d="M80 48L158 38"></path><path class="ray r2 an" d="M80 58H158"></path><path class="ray r3 an" d="M80 68L158 78"></path>
+                <g class="vf an"><path d="M176 40v-6h6M200 34h6v6M206 78v6h-6M182 84h-6v-6"></path><circle cx="191" cy="59" r="3.4"></circle></g>
+                <circle class="lens" cx="188" cy="19" r="1.8"></circle>
+              </svg>
+            </div>
+            <span class="way-n mono" aria-hidden="true">05</span>
+            <span class="way-new" data-i18n="wayNew">新</span>
+            <h3 data-i18n="w7t">二维码 + 光线</h3>
+            <p data-i18n="w7p">一部手机显示二维码，另一部扫描后，在屏幕上用缓慢变化的彩色方块动画（5–8 秒）回应，第一部用摄像头读取。每秒最多变化 3 次，不含红色，开始前会有提示。</p>
+            <p class="way-when"><b data-i18n="wayWhen">适用于：</b> <span data-i18n="w7w">你们在一起，但环境嘈杂。</span></p>
+          </article>
+
+          <article class="card way reveal" data-tilt="" data-way="friend">
+            <div class="way-art" aria-hidden="true">
+              <svg class="art" viewBox="0 0 240 120" focusable="false">
+                <path class="ln l1 an" d="M120 36L58 86"></path><path class="ln l2 an" d="M120 36L182 86"></path>
+                <path class="ln dash l3 an" d="M70 92H170"></path>
+                <circle class="pdot d1 an" cx="120" cy="36" r="4.5"></circle><circle class="pdot d2 an" cx="120" cy="36" r="4.5"></circle>
+                <g class="who"><circle cx="120" cy="26" r="15"></circle><circle class="hd" cx="120" cy="22" r="4.6"></circle><path class="sh" d="M111 35a9 8 0 0 1 18 0"></path></g>
+                <g class="who"><circle cx="50" cy="92" r="15"></circle><circle class="hd" cx="50" cy="88" r="4.6"></circle><path class="sh" d="M41 101a9 8 0 0 1 18 0"></path></g>
+                <g class="who"><circle cx="190" cy="92" r="15"></circle><circle class="hd" cx="190" cy="88" r="4.6"></circle><path class="sh" d="M181 101a9 8 0 0 1 18 0"></path></g>
+                <g class="ok an"><circle cx="120" cy="92" r="9"></circle><path d="M115.5 92.2l3.1 3.1 5.9-6.3"></path></g>
+              </svg>
+            </div>
+            <span class="way-n mono" aria-hidden="true">06</span>
+            <span class="way-new" data-i18n="wayNew">新</span>
+            <h3 data-i18n="w5t">通过共同好友</h3>
+            <p data-i18n="w5p">你们都认识的联系人为你们牵线。整个过程是纯点对点的，双方都必须接受，好友无法冒充别人。</p>
+            <p class="way-when"><b data-i18n="wayWhen">适用于：</b> <span data-i18n="w5w">你们有已经信任的共同好友时。</span></p>
+          </article>
+
+          <article class="card way reveal" data-tilt="" data-way="relay">
+            <div class="way-art" aria-hidden="true">
+              <svg class="art" viewBox="0 0 240 120" focusable="false">
+                <path class="arc" d="M40 62Q120 8 200 62"></path>
+                <g class="ph"><rect x="16" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="21" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="ph"><rect x="180" y="14" width="44" height="88" rx="9"></rect><rect class="scr" x="185" y="24" width="34" height="68" rx="4"></rect></g>
+                <g class="bub an"><path d="M90 42h60a8 8 0 0 1 8 8v22a8 8 0 0 1-8 8h-44l-10 9v-9h-6a8 8 0 0 1-8-8V50a8 8 0 0 1 8-8z"></path><path class="tx" d="M98 54h44M98 62h30M98 70h38"></path></g>
+                <path class="plane an" d="M54 52l18 7-18 7 4-7z"></path>
+              </svg>
+            </div>
+            <span class="way-n mono" aria-hidden="true">07</span>
+            <h3 data-i18n="w6t">Telegram 机器人或复制邀请</h3>
+            <p data-i18n="w6p">签名邀请通过 Telegram 机器人传递，或者你复制后粘贴到任意聊天软件。这个渠道看得到邀请，但如果被调包，核对安全词时就会暴露。</p>
+            <p class="way-when"><b data-i18n="wayWhen">适用于：</b> <span data-i18n="w6w">你们相隔很远、也没法通话时。</span></p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================= SECURITY ================= -->
+      <section class="security" id="security" data-palette="4">
+        <header class="sec-head reveal">
+          <p class="kicker" data-i18n="secKicker">安全，不吹牛</p>
+          <h2 data-i18n-html="secTitle">做了什么，我们直说。<br><em>还没做到的，也直说。</em></h2>
+        </header>
+        <div class="sec-grid">
+          <div class="sec-item reveal"><b data-i18n="sec1t">签名发布</b><p data-i18n="sec1p">每个版本都附带签名的依赖清单（SBOM）和校验和。</p></div>
+          <div class="sec-item reveal"><b data-i18n="sec2t">可复现构建</b><p data-i18n="sec2p">同一份代码，两次干净构建，得到完全相同的文件。全程自动校验。</p></div>
+          <div class="sec-item reveal"><b data-i18n="sec3t">对照参考实现测试</b><p data-i18n="sec3p">Double Ratchet 通过了与独立参考实现的对照测试。付费的第三方审计暂时还没有，我们如实说明。</p></div>
+          <div class="sec-item reveal"><b data-i18n="sec4t">信令服务器什么都看不见</b><p data-i18n="sec4p">在“房间”模式下，一个小小的 Worker 只在 10 分钟内转发加密数据。密钥由那 3 个单词生成（PAKE），所以它看不到邀请、你们的密钥和网络地址。QR 模式完全不用服务器。</p></div>
+          <div class="sec-item reveal"><b data-i18n="sec5t">存储也加密</b><p data-i18n="sec5p">聊天记录和联系人保存在设备上，用 AES-GCM 加密。密钥永远不会离开设备。</p></div>
+          <div class="sec-item reveal warn"><b data-i18n="sec6t">坦白提醒</b><p data-i18n="sec6p">因为是直连，部分移动网络会拦截。这时可以先在同一个 Wi‑Fi 下完成首次连接，或使用你自己的 TURN 服务器。</p></div>
+        </div>
+      </section>
+
+      <!-- ================= DOWNLOAD ================= -->
+      <section class="download" id="download" data-palette="5">
+        <header class="sec-head reveal">
+          <p class="kicker" data-i18n="dlKicker">下载</p>
+          <h2 data-i18n-html="dlTitle">选择你的设备。<br><em>文件就在这里。</em></h2>
+          <p class="sec-lead" data-i18n="dlLead">文件来自 GitHub 发布页，每个都附有 SHA-256 校验和。</p>
+        </header>
+        <div class="os-tabs reveal" role="tablist" aria-label="系统" data-i18n-aria="osLabel">
+          <button role="tab" type="button" data-tab="windows" id="tab-windows" aria-controls="dl-windows">Windows</button>
+          <button role="tab" type="button" data-tab="linux" id="tab-linux" aria-controls="dl-linux">Linux</button>
+          <button role="tab" type="button" data-tab="android" id="tab-android" aria-controls="dl-android">Android</button>
+          <button role="tab" type="button" data-tab="ios" id="tab-ios" aria-controls="dl-ios">iPhone · iPad</button>
+          <button role="tab" type="button" data-tab="web" id="tab-web" aria-controls="dl-web" data-i18n="osWeb">浏览器</button>
+          <button role="tab" type="button" data-tab="extension" id="tab-extension" aria-controls="dl-extension" data-i18n="osExtension">扩展程序</button>
+          <span class="tab-ink" aria-hidden="true"></span>
+        </div>
+
+        <div class="panels reveal">
+          <div class="panel" role="tabpanel" id="dl-windows" aria-labelledby="tab-windows" data-panel="windows">
+            <div class="panel-head"><h3>Windows 10 · 11</h3><span class="badge" data-badge="windows"></span></div>
+            <div class="files">
+              <a class="file main" data-kind="windowsSetup" data-fallback=""><b data-i18n="winSetup">安装版</b><small data-i18n="winSetupNote">无需管理员权限 · .exe</small><span class="meta"></span></a>
+              <a class="file" data-kind="windowsPortable" data-fallback=""><b data-i18n="winPortable">便携版</b><small data-i18n="winPortableNote">解压即用 · .zip</small><span class="meta"></span></a>
+              <a class="file" data-kind="windowsSums" data-fallback=""><b>SHA256SUMS.txt</b><small data-i18n="sums">校验和</small><span class="meta"></span></a>
+            </div>
+            <p class="hint" data-i18n="winHint">因为是新程序，Windows SmartScreen 可能会提示一次。点“更多信息”→“仍要运行”即可。</p>
+          </div>
+
+          <div class="panel" role="tabpanel" id="dl-linux" aria-labelledby="tab-linux" data-panel="linux" hidden="">
+            <div class="panel-head"><h3>Linux x86_64</h3><span class="badge" data-badge="linux"></span></div>
+            <div class="files">
+              <a class="file main" data-kind="deb" data-fallback=""><b>.deb</b><small>Debian · Ubuntu · Mint</small><span class="meta"></span></a>
+              <a class="file" data-kind="rpm" data-fallback=""><b>.rpm</b><small>Fedora · openSUSE</small><span class="meta"></span></a>
+              <a class="file" data-kind="appimage" data-fallback=""><b>AppImage</b><small data-i18n="appimageNote">随处运行，无需安装</small><span class="meta"></span></a>
+              <a class="file" data-kind="flatpak" data-fallback=""><b>Flatpak</b><small data-i18n="flatpakNote">沙盒运行</small><span class="meta"></span></a>
+            </div>
+            <div class="code-line" data-install-line="" hidden=""><span class="mono" data-install-cmd="">curl -fsSLO …/install.sh &amp;&amp; bash install.sh</span><button class="copy" type="button" data-copy-from="[data-install-cmd]" data-i18n="copy">复制</button></div>
+            <p class="hint" data-i18n="linuxHint">install.sh 会先核对校验和，再安装任何东西。</p>
+          </div>
+
+          <div class="panel" role="tabpanel" id="dl-android" aria-labelledby="tab-android" data-panel="android" hidden="">
+            <div class="panel-head"><h3>Android 7+</h3><span class="badge" data-badge="android"></span></div>
+            <div class="files">
+              <a class="file main" data-kind="apk" data-fallback=""><b>APK</b><small data-i18n="apkNote">直接安装</small><span class="meta"></span></a>
+              <a class="file" data-kind="androidSums" data-fallback=""><b>SHA256SUMS-android.txt</b><small data-i18n="sums">校验和</small><span class="meta"></span></a>
+            </div>
+            <ol class="mini-steps">
+              <li data-i18n="apk1">在手机上下载文件。</li>
+              <li data-i18n="apk2">打开文件，并开启“允许来自此来源的应用”。</li>
+              <li data-i18n="apk3">搞定。也可以用浏览器：Chrome → ⋮ →“安装应用”。</li>
+            </ol>
+          </div>
+
+          <div class="panel" role="tabpanel" id="dl-ios" aria-labelledby="tab-ios" data-panel="ios" hidden="">
+            <div class="panel-head"><h3>iPhone · iPad</h3><span class="badge soft" data-i18n="iosBadge">通过 Safari</span></div>
+            <ol class="mini-steps big">
+              <li data-i18n-html="ios1">在 Safari 中打开 <a href="../app/">应用</a>。</li>
+              <li data-i18n="ios2">轻点“分享”（带箭头的方框）。</li>
+              <li data-i18n="ios3">选择“添加到主屏幕”。全屏运行，和真正的 App 一样。</li>
+            </ol>
+            <p class="hint" data-i18n="iosHint">App Store 上暂时还没有。网页版是同一份代码，功能一样不少。</p>
+          </div>
+
+          <div class="panel" role="tabpanel" id="dl-web" aria-labelledby="tab-web" data-panel="web" hidden="">
+            <div class="panel-head"><h3 data-i18n="webTitle">直接在浏览器里用</h3><span class="badge soft" data-i18n="webBadge">无需安装</span></div>
+            <p class="panel-lead" data-i18n="webLead">Chrome、Edge、Firefox 或 Safari，电脑和手机都行。首次访问后，已加载的部分可以离线使用。</p>
+            <a class="btn btn-main" href="../app/"><span data-i18n="openApp">在浏览器中打开</span></a>
+          </div>
+
+          <div class="panel" role="tabpanel" id="dl-extension" aria-labelledby="tab-extension" data-panel="extension" hidden="">
+            <div class="panel-head"><h3 data-i18n="extTitle">Chrome 扩展程序</h3><span class="badge" data-ext-badge=""></span></div>
+            <div class="ext-grid">
+              <div class="ext-demo" role="img" aria-label="扩展程序弹出窗口的样子" data-i18n-aria="extMockLabel">
+                <div class="ext-bar" aria-hidden="true"><i></i><i></i><i></i><span class="ext-addr">dyrakarmy.online/app/</span><span class="ext-pin"></span></div>
+                <div class="ext-popup" aria-hidden="true" data-ext-mock="" lang="en">
+                  <div class="ext-brand"><span class="ext-ico"></span><div><div class="ext-h1" data-ext-msg="popupTitle">P2P Messenger</div><div class="ext-sub" data-ext-msg="popupSubtitle">Private, direct, no servers.</div></div></div>
+                  <div class="ext-status" data-ext-msg="statusClosed">Not open yet.</div>
+                  <div class="ext-btn primary" data-ext-msg="openMessenger">Open messenger</div>
+                  <div class="ext-btn" data-ext-msg="openWindow">Open in a small window</div>
+                  <div class="ext-foot"><p data-ext-msg="shortcutHint">Shortcut: Ctrl+Shift+M (Command+Shift+M on Mac)</p><p data-ext-msg="privacyNote">The extension only opens the app. It collects no data and runs no servers of its own.</p></div>
+                </div>
+              </div>
+              <div class="ext-info">
+                <p class="panel-lead" data-i18n-html="extLead">地址栏旁的一个小按钮，点一下或按 <code>Ctrl+Shift+M</code> 就能打开信使。如果已在某个标签页打开，就把它切到前面。它不收集任何数据，也没有自己的服务器。</p>
+                <div class="files">
+                  <a class="file main" href="../downloads/p2p-messenger-quick-launch.zip" download="p2p-messenger-quick-launch.zip" data-ext-file=""><b data-i18n="extFile">下载扩展程序</b><small>.zip · Chromium</small><span class="meta" data-ext-meta=""></span></a>
+                </div>
+                <div class="code-line" data-ext-sha-line="" hidden=""><span class="mono"><span class="sha-label">SHA-256</span> <span data-ext-sha=""></span></span><button class="copy" type="button" data-copy-from="[data-ext-sha]" data-i18n="copy">复制</button></div>
+                <p class="hint" data-i18n="extBrowsers">适用于 Chrome、Edge、Brave 和其他基于 Chromium 的浏览器。Firefox 和 Safari 请直接使用应用。</p>
+                <p class="hint ext-store" data-i18n="extStore">它不在 Chrome 应用商店（Chrome Web Store）里，所以要手动作为“已解压的扩展程序”添加。Chrome 可能会显示开发者模式的提示：这是正常的。</p>
+              </div>
+            </div>
+            <ol class="mini-steps ext-steps">
+              <li data-i18n="ext1">下载文件，并解压到一个你不会删除的文件夹：Chrome 会从那里读取扩展程序。</li>
+              <li data-i18n-html="ext2">打开 <code>chrome://extensions</code>（Edge 中是 <code>edge://extensions</code>），并打开右上角的“开发者模式”。</li>
+              <li data-i18n="ext3">点击“加载已解压的扩展程序”（Load unpacked），选择解压后的文件夹，也就是里面有 manifest.json 的那个。</li>
+              <li data-i18n-html="ext4">完成。在地址栏旁的拼图菜单中固定图标，然后按 <code>Ctrl+Shift+M</code>（Mac 上是 <code>Command+Shift+M</code>）。</li>
+            </ol>
+          </div>
+        </div>
+        <p class="all-releases reveal"><a href="https://github.com/biramentv-ux/p2p-pure-releases/releases" rel="noopener" data-i18n="allReleases">GitHub 上的所有版本和说明 →</a></p>
+      </section>
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq" id="faq" data-palette="6">
+        <header class="sec-head reveal">
+          <p class="kicker" data-i18n="faqKicker">常见问题</p>
+          <h2 data-i18n-html="faqTitle">大家常问。<br><em>我们直说。</em></h2>
+        </header>
+        <div class="qa">
+          <details class="reveal"><summary data-i18n="q1">真的没有服务器吗？</summary><p data-i18n="a1">消息和文件不经过服务器，直接传输。只有在“房间”模式下才用到一台小服务器：你们相隔太远、没法扫 QR 码时，它在 10 分钟内转发它读不懂的加密数据。公共 STUN 服务器帮两台设备找到彼此，但看不到任何内容。</p></details>
+          <details class="reveal"><summary data-i18n="q2">手机丢了怎么办？</summary><p data-i18n="a2">用那 12 个词就能在新设备上恢复个人资料，所以请写在纸上。没有它们，谁都恢复不了，包括我们。</p></details>
+          <details class="reveal"><summary data-i18n="q3">双方都得在线吗？</summary><p data-i18n="a3">是的。没有服务器替你们暂存消息，所以只有双方都在线时才能送达。这就是没人替你保管消息的代价。</p></details>
+          <details class="reveal"><summary data-i18n="q4">为什么有时连不上？</summary><p data-i18n="a4">部分移动网络会拦截直连。首次连接可以试试同一个 Wi‑Fi，或在设置里添加你自己的 TURN 服务器。默认我们不使用任何第三方服务器。</p></details>
+          <details class="reveal"><summary data-i18n="q5">要花钱吗？</summary><p data-i18n="a5">完全免费。没有广告，没有订阅，也没有可以拿去卖的账号。</p></details>
+          <details class="reveal"><summary data-i18n="q6">从这里下载 .exe 或 .apk 安全吗？</summary><p data-i18n="a6">所有文件都由 GitHub 根据源代码自动构建。每个都附有 SHA-256 校验和，版本发布还附带签名的 SBOM。校验和一致，就说明文件和构建出来的一模一样。</p></details>
+        </div>
+      </section>
+
+      <!-- ================= FINAL CTA ================= -->
+      <section class="final" data-palette="7">
+        <div class="final-inner reveal">
+          <h2 data-i18n-html="finalTitle">你的下一条消息，<br><em>可以只属于你。</em></h2>
+          <div class="cta">
+            <a class="btn btn-main magnet" href="#download" data-primary-download=""><span class="btn-glow" aria-hidden="true"></span><span data-primary-label="" data-i18n="ctaDownload">免费下载</span></a>
+            <a class="btn btn-ghost" href="../app/"><span data-i18n="openApp">在浏览器中打开</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot-brand"><b>P2P Messenger</b><span data-i18n="footTag">私人。去中心化。已封缄。</span></div>
+      <nav class="foot-links" aria-label="链接" data-i18n-aria="footLabel">
+        <a href="https://github.com/biramentv-ux/p2p-pure-releases/releases" rel="noopener" data-i18n="footReleases">版本发布</a>
+        <a href="https://github.com/biramentv-ux/p2p-pure-releases/blob/main/SECURITY.md" rel="noopener" data-i18n="footSecurity">安全</a>
+        <a href="https://github.com/biramentv-ux/p2p-pure-releases/blob/main/LICENSE" rel="noopener" data-i18n="footLicense">许可证</a>
+      </nav>
+      <p class="foot-small" data-i18n="footSmall">本网站不使用 Cookie、追踪器或外部字体。浏览时不会发送任何数据。</p>
+    </footer>
+
+    <!-- Filled in by the build (scripts/site/build.mjs) from the GitHub releases. -->
+    <script type="application/json" id="releases">{"windowsSetup":{"name":"P2P-Messenger-Setup-x64.exe","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/P2P-Messenger-Setup-x64.exe","size":4288798,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"windowsPortable":{"name":"P2P-Messenger-portable-x64.zip","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/P2P-Messenger-portable-x64.zip","size":2711761,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"windowsWinget":{"name":"P2P-Messenger-winget-manifests.zip","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/P2P-Messenger-winget-manifests.zip","size":2875,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"windowsSums":{"name":"SHA256SUMS.txt","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/SHA256SUMS.txt","size":193,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"deb":{"name":"P2P-Messenger-0.8.1-amd64.deb","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/P2P-Messenger-0.8.1-amd64.deb","size":101917524,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"rpm":{"name":"P2P-Messenger-0.8.1-x86_64.rpm","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/P2P-Messenger-0.8.1-x86_64.rpm","size":91385981,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"appimage":{"name":"P2P-Messenger-0.8.1-x86_64.AppImage","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/P2P-Messenger-0.8.1-x86_64.AppImage","size":127034925,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"flatpak":{"name":"P2P-Messenger-0.8.1-x86_64.flatpak","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/P2P-Messenger-0.8.1-x86_64.flatpak","size":94339728,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"linuxInstall":{"name":"install.sh","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/install.sh","size":16800,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"linuxSums":{"name":"SHA256SUMS-linux.txt","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/desktop-v0.8.1/SHA256SUMS-linux.txt","size":473,"tag":"desktop-v0.8.1","version":"0.8.1","preview":false,"published":"2026-11-05T10:36:54Z"},"apk":{"name":"P2P-Messenger-0.8.0-android.apk","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/android-v0.8.0/P2P-Messenger-0.8.0-android.apk","size":5607245,"tag":"android-v0.8.0","version":"0.8.0","preview":false,"published":"2026-11-05T03:46:18Z"},"androidSums":{"name":"SHA256SUMS-android.txt","url":"https://github.com/biramentv-ux/p2p-pure-releases/releases/download/android-v0.8.0/SHA256SUMS-android.txt","size":98,"tag":"android-v0.8.0","version":"0.8.0","preview":false,"published":"2026-11-05T03:46:18Z"}}</script>
+    <!-- Version, size and SHA-256 of downloads/p2p-messenger-quick-launch.zip, filled in by the build. -->
+    <script type="application/json" id="extension-info">{"version":"1.0.0","size":13524,"sha256":"70275520e9c1addf811cdecf3bb54c10b4f0afe1a540a91b978579d4c0860fd7","file":"p2p-messenger-quick-launch-1.0.0.zip"}</script>
+  
+
+</body></html>
